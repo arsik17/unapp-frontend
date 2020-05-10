@@ -1,4 +1,5 @@
-# unapp-frontend
+# Unapp
+Application for university admissions
 
 ## Project setup
 ```
@@ -29,6 +30,3 @@ npm run test:e2e
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
