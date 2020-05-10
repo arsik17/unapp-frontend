@@ -41,6 +41,7 @@ export default {};
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  background-color: #0b78dd;
 }
 
 .nav__link,

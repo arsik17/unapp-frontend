@@ -31,7 +31,6 @@ export default {
 .default-layout__nav-wrapper {
   width: 20%;
   min-height: 100vh;
-  border: 1px solid red;
   box-sizing: border-box;
 }
 
@@ -41,12 +40,10 @@ export default {
   left: 0;
   height: 100vh;
   width: 20vw;
-  background-color: #1890ff;
 }
 
 .default-layout__content {
   width: 80%;
   box-sizing: border-box;
-  border: 1px solid green;
 }
 </style>
