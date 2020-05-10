@@ -44,7 +44,7 @@ export default {
 
 <style scoped>
 .header {
-  height: 70px;
+  height: 90px;
   padding: 0 4vw;
   display: flex;
   align-items: center;
