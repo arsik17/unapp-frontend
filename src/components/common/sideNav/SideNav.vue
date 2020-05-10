@@ -1,6 +1,6 @@
 <template>
   <nav class="nav">
-    <div class="logo"></div>
+    <h2 class="nav__logo logo">UnApp</h2>
     <div class="nav__links">
       <router-link to="/" exact class="nav__link">
         <a-icon type="home" theme="filled" class="nav__icon" />
@@ -42,6 +42,12 @@ export default {};
   align-items: center;
   justify-content: space-between;
   background-color: #0b78dd;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 .nav__link {
