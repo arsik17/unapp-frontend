@@ -8,6 +8,8 @@ import EmptyLayout from "@/views/layouts/EmptyLayout";
 import Login from "@/views/auth/Login";
 import Register from "@/views/auth/Register";
 
+import Universities from "@/views/universities/Universities";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -20,6 +22,11 @@ const routes = [
         path: "",
         name: "index",
         component: Home
+      },
+      {
+        path: "universities",
+        name: "universities",
+        component: Universities
       }
     ]
   },

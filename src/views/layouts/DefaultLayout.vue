@@ -4,7 +4,7 @@
       <side-nav class="default-layout__nav" />
     </div>
     <div class="default-layout__content">
-      <c-header />
+      <c-header class="default-layout__header" />
       <router-view></router-view>
     </div>
   </div>
@@ -40,6 +40,10 @@ export default {
   left: 0;
   height: 100vh;
   width: 20vw;
+}
+
+.default-layout__header {
+  margin-bottom: 30px;
 }
 
 .default-layout__content {
