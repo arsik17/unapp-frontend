@@ -1,9 +1,13 @@
 <template>
-  <h1>This is home page</h1>
+  <div class="home">This is home page</div>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style></style>
+<style scoped>
+.home {
+  height: 200vh;
+}
+</style>

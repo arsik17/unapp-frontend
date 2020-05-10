@@ -1,8 +1,10 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+
+import DefaultLayout from "@/views/layouts/DefaultLayout";
 import Home from "@/views/home/Home.vue";
 
-import AuthLayout from "@/views/auth/Layout";
+import EmptyLayout from "@/views/layouts/EmptyLayout";
 import Login from "@/views/auth/Login";
 import Register from "@/views/auth/Register";
 
@@ -12,12 +14,19 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: DefaultLayout,
+    children: [
+      {
+        path: "",
+        name: "index",
+        component: Home
+      }
+    ]
   },
   {
     path: "/auth",
     name: "auth",
-    component: AuthLayout,
+    component: EmptyLayout,
     children: [
       {
         path: "login",
