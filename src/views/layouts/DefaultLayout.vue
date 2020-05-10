@@ -4,6 +4,7 @@
       <side-nav class="default-layout__nav" />
     </div>
     <div class="default-layout__content">
+      <c-header />
       <router-view></router-view>
     </div>
   </div>
@@ -11,10 +12,12 @@
 
 <script>
 import SideNav from "@/components/common/sideNav/SideNav";
+import Header from "@/components/common/header/Header";
 
 export default {
   components: {
-    "side-nav": SideNav
+    "side-nav": SideNav,
+    "c-header": Header
   }
 };
 </script>
