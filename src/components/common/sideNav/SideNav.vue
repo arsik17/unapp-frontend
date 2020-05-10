@@ -2,7 +2,7 @@
   <nav class="nav">
     <div class="logo"></div>
     <div class="nav__links">
-      <router-link to="/" class="nav__link">
+      <router-link to="/" exact class="nav__link">
         <a-icon type="home" theme="filled" class="nav__icon" />
         <span class="nav__link-text">Home</span>
       </router-link>
@@ -44,6 +44,10 @@ export default {};
   background-color: #0b78dd;
 }
 
+.nav__link {
+  margin-bottom: 5px;
+}
+
 .nav__link,
 .nav__footer {
   padding: 15px 20px;
@@ -57,8 +61,9 @@ export default {};
 }
 
 .nav__link:hover,
-.nav__footer:hover {
-  background-color: #1574cc;
+.nav__footer:hover,
+.nav__link.router-link-active {
+  background-color: #1367b6;
 }
 
 .nav__icon,
