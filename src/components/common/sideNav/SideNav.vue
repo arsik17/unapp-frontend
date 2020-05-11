@@ -18,9 +18,9 @@
         <a-icon type="copy" theme="filled" class="nav__icon" />
         <span class="nav__link-text">Documents</span>
       </router-link>
-      <router-link to="#" class="nav__link">
+      <router-link to="/leaderboard" class="nav__link">
         <a-icon type="trophy" theme="filled" class="nav__icon" />
-        <span class="nav__link-text">Progress</span>
+        <span class="nav__link-text">Leaderboard</span>
       </router-link>
     </div>
     <footer class="nav__footer">
