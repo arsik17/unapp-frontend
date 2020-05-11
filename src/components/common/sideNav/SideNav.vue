@@ -14,7 +14,7 @@
         <a-icon type="idcard" theme="filled" class="nav__icon" />
         <span class="nav__link-text">Profile</span>
       </router-link>
-      <router-link to="#" class="nav__link">
+      <router-link to="/documents" class="nav__link">
         <a-icon type="copy" theme="filled" class="nav__icon" />
         <span class="nav__link-text">Documents</span>
       </router-link>
