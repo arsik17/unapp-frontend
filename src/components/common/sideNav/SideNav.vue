@@ -10,7 +10,7 @@
         <a-icon type="bank" theme="filled" class="nav__icon" />
         <span class="nav__link-text">Universities</span>
       </router-link>
-      <router-link to="#" class="nav__link">
+      <router-link to="/profile" class="nav__link">
         <a-icon type="idcard" theme="filled" class="nav__icon" />
         <span class="nav__link-text">Profile</span>
       </router-link>
