@@ -23,7 +23,7 @@
             <a href="javascript:;">Settings</a>
           </a-menu-item>
           <a-menu-divider />
-          <a-menu-item>
+          <a-menu-item @click="handleLogout">
             <a href="javascript:;">Log out</a>
           </a-menu-item>
         </a-menu>
@@ -33,11 +33,17 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   methods: {
     onSearch(text) {
       console.log("Searching: " + text);
-    }
+    },
+    handleLogout() {
+      this.logout().then(() => this.$router.push("/auth/login"));
+    },
+    ...mapActions(["logout"])
   }
 };
 </script>

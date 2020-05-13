@@ -9,9 +9,9 @@
       class="login__form"
     >
       <h1 class="login__heading">Log In</h1>
-      <a-form-model-item prop="user">
-        <a-input v-model="form.user" placeholder="Username" autocomplete="off">
-          <a-icon slot="prefix" type="user" style="color:rgba(0,0,0,.25)" />
+      <a-form-model-item prop="email">
+        <a-input v-model="form.email" placeholder="Email" autocomplete="off">
+          <a-icon slot="prefix" type="mail" style="color:rgba(0,0,0,.25)" />
         </a-input>
       </a-form-model-item>
       <a-form-model-item prop="password">
@@ -26,15 +26,17 @@
   </section>
 </template>
 <script>
+import { mapActions } from "vuex";
+
 export default {
   data() {
     return {
       form: {
-        user: "",
+        email: "",
         password: ""
       },
       rules: {
-        user: [
+        email: [
           {
             required: true,
             message: "Please enter user name",
@@ -54,14 +56,18 @@ export default {
   methods: {
     handleSubmit() {
       if (this.isFormValid()) {
-        console.log("Form is submitted");
+        this.login({
+          email: this.form.email,
+          password: this.form.password
+        }).then(() => this.$router.push("/"));
       }
     },
     isFormValid() {
       let isValid = false;
       this.$refs.form.validate(valid => (isValid = valid));
       return isValid;
-    }
+    },
+    ...mapActions(["login"])
   }
 };
 </script>

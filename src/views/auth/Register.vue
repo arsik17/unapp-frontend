@@ -31,6 +31,8 @@
   </section>
 </template>
 <script>
+import { mapActions } from "vuex";
+
 export default {
   data() {
     return {
@@ -67,14 +69,20 @@ export default {
   methods: {
     handleSubmit() {
       if (this.isFormValid()) {
-        console.log("Form is submitted");
+        const user = {
+          name: this.form.user,
+          email: this.form.email,
+          password: this.form.password
+        };
+        this.register(user).then(() => this.$router.push("/"));
       }
     },
     isFormValid() {
       let isValid = false;
       this.$refs.form.validate(valid => (isValid = valid));
       return isValid;
-    }
+    },
+    ...mapActions(["register"])
   }
 };
 </script>

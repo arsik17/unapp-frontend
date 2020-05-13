@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import store from "@/store/index";
 
 import DefaultLayout from "@/views/layouts/DefaultLayout";
 import Home from "@/views/home/Home.vue";
@@ -20,6 +21,9 @@ const routes = [
     path: "/",
     name: "Home",
     component: DefaultLayout,
+    meta: {
+      requiresAuth: true
+    },
     children: [
       {
         path: "",
@@ -71,6 +75,23 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes
+});
+
+router.beforeEach((to, from, next) => {
+  if (
+    store.getters.isLoggedIn &&
+    to.matched.some(record => record.meta.onlyNotAuth)
+  ) {
+    next("/");
+  } else if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (store.getters.isLoggedIn) {
+      next();
+      return;
+    }
+    next("/auth/login");
+  } else {
+    next();
+  }
 });
 
 export default router;
