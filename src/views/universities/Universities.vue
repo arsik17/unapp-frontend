@@ -1,16 +1,22 @@
 <template>
   <div class="universities">
-    <a-table :columns="columns" :data-source="data" :pagination="false">
+    <a-table
+      :columns="columns"
+      :data-source="universitiesTableData"
+      :pagination="false"
+    >
       <span slot="scholarship" slot-scope="scholarship">
-        <a-tag :color="getScholarshipColor(scholarship)">
-          {{ scholarship.toUpperCase() }}
-        </a-tag>
+        <a-tag :color="getScholarshipColor(scholarship)">{{
+          scholarship.toUpperCase()
+        }}</a-tag>
       </span>
     </a-table>
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 const columns = [
   {
     title: "Rating",
@@ -40,39 +46,20 @@ const columns = [
   }
 ];
 
-const data = [
-  {
-    key: "1",
-    rating: 345,
-    name: "MIT",
-    city: "Boston",
-    scholarship: "full",
-    cost: "40,000$"
-  },
-  {
-    key: "2",
-    rating: 345,
-    name: "Harvard",
-    city: "Washington",
-    scholarship: "partial",
-    cost: "22,000$"
-  },
-  {
-    key: "3",
-    rating: 345,
-    name: "Stanford",
-    city: "New York",
-    scholarship: "no",
-    cost: "30,000$"
-  }
-];
-
 export default {
   data() {
     return {
-      data,
       columns
     };
+  },
+  computed: {
+    universitiesTableData() {
+      return this.universities.map(item => {
+        item.key = item._id;
+        return item;
+      });
+    },
+    ...mapGetters(["universities"])
   },
   methods: {
     getScholarshipColor(scholarship) {
@@ -82,7 +69,11 @@ export default {
         partial: "orange"
       };
       return scholarshipColors[scholarship];
-    }
+    },
+    ...mapActions(["fetchUniversities"])
+  },
+  beforeMount() {
+    this.fetchUniversities();
   }
 };
 </script>
