@@ -14,19 +14,8 @@
         <a-icon type="idcard" theme="filled" class="nav__icon" />
         <span class="nav__link-text">Profile</span>
       </router-link>
-      <router-link to="/documents" class="nav__link">
-        <a-icon type="copy" theme="filled" class="nav__icon" />
-        <span class="nav__link-text">Documents</span>
-      </router-link>
-      <router-link to="/leaderboard" class="nav__link">
-        <a-icon type="trophy" theme="filled" class="nav__icon" />
-        <span class="nav__link-text">Leaderboard</span>
-      </router-link>
     </div>
-    <footer class="nav__footer">
-      <a-icon type="api" theme="filled" class="nav__footer-icon" />
-      <span class="nav__footer-text">Exit</span>
-    </footer>
+    <footer class="nav__footer"></footer>
   </nav>
 </template>
 

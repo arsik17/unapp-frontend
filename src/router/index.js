@@ -11,8 +11,6 @@ import Register from "@/views/auth/Register";
 
 import Universities from "@/views/universities/Universities";
 import Profile from "@/views/profile/Profile";
-import Leaderboard from "@/views/leaderboard/Leaderboard";
-import Documents from "@/views/documents/Documents";
 
 Vue.use(VueRouter);
 
@@ -39,16 +37,6 @@ const routes = [
         path: "profile",
         name: "profile",
         component: Profile
-      },
-      {
-        path: "leaderboard",
-        name: "leaderboard",
-        component: Leaderboard
-      },
-      {
-        path: "documents",
-        name: "documents",
-        component: Documents
       }
     ]
   },
