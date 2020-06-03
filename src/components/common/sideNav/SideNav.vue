@@ -36,7 +36,7 @@ export default {};
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: #0b78dd;
+  background-color: #3e2179;
 }
 
 .logo {
@@ -66,7 +66,7 @@ export default {};
 .nav__link:hover,
 .nav__footer:hover,
 .nav__link.router-link-active {
-  background-color: #1367b6;
+  background-color: #23104d;
 }
 
 .nav__icon,
