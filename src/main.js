@@ -5,7 +5,7 @@ import store from "./store";
 import "@/assets/styles/main.css";
 
 import Antd from "ant-design-vue";
-import "ant-design-vue/dist/antd.css";
+import "../node_modules/ant-design-vue/dist/antd.less";
 Vue.use(Antd);
 
 Vue.config.productionTip = false;
