@@ -1,6 +1,12 @@
 <template>
   <nav class="nav">
-    <h2 class="nav__logo logo">UnApp</h2>
+    <h2 class="nav__logo logo">
+      <img
+        class="logo__image"
+        src="@/assets/images/logo_light.svg"
+        alt="Logo"
+      />
+    </h2>
     <div class="nav__links">
       <router-link to="/" exact class="nav__link">
         <a-icon type="home" theme="filled" class="nav__icon" />
@@ -25,7 +31,7 @@ export default {};
 
 <style scoped>
 .nav {
-  padding: 5vh 0;
+  padding: 7vh 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,9 +40,11 @@ export default {};
 }
 
 .logo {
-  font-size: 26px;
-  font-weight: 700;
-  color: #ffffff;
+  width: 55%;
+}
+
+.logo__image {
+  width: 100%;
 }
 
 .nav__link {
