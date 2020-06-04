@@ -37,9 +37,7 @@ import { mapMutations } from "vuex";
 
 export default {
   methods: {
-    onSearch(text) {
-      console.log("Searching: " + text);
-    },
+    onSearch() {},
     handleLogout() {
       this.logout();
       this.$router.push("/auth/login");
