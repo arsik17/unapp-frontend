@@ -24,9 +24,7 @@
           <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
         </a-input>
       </a-form-model-item>
-      <a-button type="primary" html-type="submit">
-        Let's go
-      </a-button>
+      <a-button type="primary" html-type="submit">Let's go</a-button>
     </a-form-model>
   </section>
 </template>
@@ -70,7 +68,7 @@ export default {
     handleSubmit() {
       if (this.isFormValid()) {
         const user = {
-          name: this.form.user,
+          username: this.form.user,
           email: this.form.email,
           password: this.form.password
         };

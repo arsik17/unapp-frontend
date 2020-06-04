@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapMutations } from "vuex";
 
 export default {
   methods: {
@@ -41,9 +41,10 @@ export default {
       console.log("Searching: " + text);
     },
     handleLogout() {
-      this.logout().then(() => this.$router.push("/auth/login"));
+      this.logout();
+      this.$router.push("/auth/login");
     },
-    ...mapActions(["logout"])
+    ...mapMutations(["logout"])
   }
 };
 </script>

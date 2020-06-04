@@ -40,7 +40,7 @@ export default {};
 }
 
 .logo {
-  width: 55%;
+  width: 45%;
 }
 
 .logo__image {
@@ -56,7 +56,7 @@ export default {};
   padding: 15px 20px;
   display: flex;
   align-items: center;
-  font-size: 17px;
+  font-size: 19px;
   color: #ffffff;
   border-radius: 10px;
   box-sizing: border-box;

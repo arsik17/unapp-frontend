@@ -12,7 +12,9 @@ const instance = axios.create({
 const key = "request";
 instance.interceptors.request.use(
   config => {
-    config.headers["Authorization"] = store.getters.token;
+    if (store.getters.token) {
+      config.headers["Authorization"] = `Bearer ${store.getters.token}`;
+    }
     message.loading({ content: "Please wait", key });
     return config;
   },
