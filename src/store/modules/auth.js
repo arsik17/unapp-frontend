@@ -41,7 +41,7 @@ export default {
           method: "POST"
         })
           .then(res => {
-            const token = res.data.token;
+            const token = res.data.jwt;
             const user = res.data.user;
             localStorage.setItem("token", token);
             commit("authSuccess", { token, user });
@@ -49,25 +49,6 @@ export default {
           })
           .catch(err => {
             commit("authError", err);
-            localStorage.removeItem("token");
-            reject(err);
-          });
-      });
-    },
-    logout({ commit }) {
-      return new Promise((resolve, reject) => {
-        commit("authLoading");
-        axios({
-          url: "users/me/logout",
-          data: {},
-          method: "POST"
-        })
-          .then(res => {
-            commit("logout");
-            resolve(res);
-          })
-          .catch(err => {
-            commit("authError");
             localStorage.removeItem("token");
             reject(err);
           });
