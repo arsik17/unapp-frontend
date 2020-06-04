@@ -11,15 +11,15 @@ export default {
       return new Promise((resolve, reject) => {
         commit("authLoading");
         axios({
-          url: "users/login",
+          url: "auth/local",
           data: {
-            email,
+            identifier: email,
             password
           },
           method: "POST"
         })
           .then(res => {
-            const token = res.data.token;
+            const token = res.data.jwt;
             const user = res.data.user;
             localStorage.setItem("token", token);
             commit("authSuccess", { token, user });
@@ -36,7 +36,7 @@ export default {
       return new Promise((resolve, reject) => {
         commit("authLoading");
         axios({
-          url: "users/register",
+          url: "auth/local/register",
           data: user,
           method: "POST"
         })
