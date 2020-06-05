@@ -1,14 +1,14 @@
 <template>
-  <section class="login">
+  <section class="register">
     <a-form-model
       :model="form"
       @submit="handleSubmit"
       :rules="rules"
       ref="form"
       @submit.native.prevent
-      class="login__form"
+      class="register__form"
     >
-      <h1 class="login__heading">Create account</h1>
+      <h1 class="register__heading">Create account</h1>
       <a-form-model-item prop="user">
         <a-input v-model="form.user" placeholder="Username" autocomplete="off">
           <a-icon slot="prefix" type="user" style="color:rgba(0,0,0,.25)" />
@@ -25,6 +25,10 @@
         </a-input>
       </a-form-model-item>
       <a-button type="primary" html-type="submit">Let's go</a-button>
+      <p class="register__bottom-text">
+        Already have account?
+        <router-link to="/auth/register">Log in</router-link>
+      </p>
     </a-form-model>
   </section>
 </template>
@@ -86,27 +90,28 @@ export default {
 </script>
 
 <style scoped>
-.login {
+.register {
   min-height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  background-image: url("../../assets/images/university_library.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #3e2179;
 }
 
-.login__form {
+.register__form {
   padding: 30px 40px;
   border-radius: 10px;
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.login__heading {
+.register__heading {
   margin-bottom: 20px;
+}
+
+.register__bottom-text {
+  margin-top: 20px;
 }
 </style>

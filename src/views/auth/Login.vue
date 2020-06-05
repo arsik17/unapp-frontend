@@ -19,9 +19,11 @@
           <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
         </a-input>
       </a-form-model-item>
-      <a-button type="primary" html-type="submit">
-        Log in
-      </a-button>
+      <a-button type="primary" html-type="submit">Log in</a-button>
+      <p class="login__bottom-text">
+        Do not have account?
+        <router-link to="/auth/register">Sign up</router-link>
+      </p>
     </a-form-model>
   </section>
 </template>
@@ -80,10 +82,7 @@ export default {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  background-image: url("../../assets/images/university_library.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #3e2179;
 }
 
 .login__form {
@@ -95,5 +94,9 @@ export default {
 
 .login__heading {
   margin-bottom: 20px;
+}
+
+.login__bottom-text {
+  margin-top: 20px;
 }
 </style>
