@@ -7,7 +7,6 @@ export default {
   },
   actions: {
     fetchUniversities({ commit }) {
-      console.log("Fetching universities");
       return new Promise((resolve, reject) => {
         commit("universitiesLoading");
         axios({
