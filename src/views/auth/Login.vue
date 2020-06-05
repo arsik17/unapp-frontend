@@ -1,5 +1,6 @@
 <template>
   <section class="login">
+    <img src="@/assets/images/logo_light.svg" alt="Logo" class="login__logo" />
     <a-form-model
       :model="form"
       @submit="handleSubmit"
@@ -79,6 +80,7 @@ export default {
   min-height: 100vh;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
@@ -90,6 +92,12 @@ export default {
   border-radius: 10px;
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.login__logo {
+  width: 150px;
+  margin: 0 auto 40px;
+  display: block;
 }
 
 .login__heading {
