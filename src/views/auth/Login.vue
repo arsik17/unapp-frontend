@@ -1,5 +1,6 @@
 <template>
   <section class="login">
+    <img src="@/assets/images/logo_light.svg" alt="Logo" class="login__logo" />
     <a-form-model
       :model="form"
       @submit="handleSubmit"
@@ -19,9 +20,11 @@
           <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
         </a-input>
       </a-form-model-item>
-      <a-button type="primary" html-type="submit">
-        Log in
-      </a-button>
+      <a-button type="primary" html-type="submit">Log in</a-button>
+      <p class="login__bottom-text">
+        Do not have account?
+        <router-link to="/auth/register">Sign up</router-link>
+      </p>
     </a-form-model>
   </section>
 </template>
@@ -77,13 +80,11 @@ export default {
   min-height: 100vh;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  background-image: url("../../assets/images/university_library.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #3e2179;
 }
 
 .login__form {
@@ -93,7 +94,17 @@ export default {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+.login__logo {
+  width: 150px;
+  margin: 0 auto 40px;
+  display: block;
+}
+
 .login__heading {
   margin-bottom: 20px;
+}
+
+.login__bottom-text {
+  margin-top: 20px;
 }
 </style>
