@@ -27,7 +27,7 @@
       <a-button type="primary" html-type="submit">Let's go</a-button>
       <p class="register__bottom-text">
         Already have account?
-        <router-link to="/auth/register">Log in</router-link>
+        <router-link to="/auth/login">Log in</router-link>
       </p>
     </a-form-model>
   </section>
