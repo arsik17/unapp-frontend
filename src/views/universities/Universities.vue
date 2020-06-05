@@ -6,9 +6,9 @@
       :pagination="false"
     >
       <span slot="scholarship" slot-scope="scholarship">
-        <a-tag :color="getScholarshipColor(scholarship)">{{
-          scholarship.toUpperCase()
-        }}</a-tag>
+        <a-tag :color="getScholarshipColor(scholarship)">
+          {{ scholarship.toUpperCase() }}
+        </a-tag>
       </span>
     </a-table>
   </div>
@@ -29,9 +29,9 @@ const columns = [
     key: "name"
   },
   {
-    title: "City",
-    dataIndex: "city",
-    key: "city"
+    title: "Country",
+    dataIndex: "country",
+    key: "country"
   },
   {
     title: "Scholarship",
@@ -41,7 +41,7 @@ const columns = [
   },
   {
     title: "Cost",
-    dataIndex: "cost",
+    dataIndex: "bachelorCost",
     key: "cost"
   }
 ];
