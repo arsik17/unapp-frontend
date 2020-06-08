@@ -5,10 +5,15 @@
       :data-source="universitiesTableData"
       :pagination="false"
     >
+      <span slot="name" slot-scope="record">
+        <router-link :to="'/universities/' + record.id">{{
+          record.name
+        }}</router-link>
+      </span>
       <span slot="scholarship" slot-scope="scholarship">
-        <a-tag :color="getScholarshipColor(scholarship)">
-          {{ scholarship.toUpperCase() }}
-        </a-tag>
+        <a-tag :color="getScholarshipColor(scholarship)">{{
+          scholarship.toUpperCase()
+        }}</a-tag>
       </span>
     </a-table>
   </div>
@@ -25,8 +30,8 @@ const columns = [
   },
   {
     title: "Name",
-    dataIndex: "name",
-    key: "name"
+    key: "name",
+    scopedSlots: { customRender: "name" }
   },
   {
     title: "Country",
