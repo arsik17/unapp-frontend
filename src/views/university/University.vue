@@ -10,25 +10,25 @@
           <a-col :span="14" class="university__article-text"
             >Early admission deadline:</a-col
           >
-          <a-col :span="10" class="university__article-text">{{
-            university.earlyAdmissionDeadline
-          }}</a-col>
+          <a-col :span="10" class="university__article-text">
+            {{ university.earlyAdmissionDeadline }}
+          </a-col>
         </a-row>
         <a-row>
           <a-col :span="14" class="university__article-text"
             >Regular admission deadline:</a-col
           >
-          <a-col :span="10" class="university__article-text">{{
-            university.regularAdmissionDeadline
-          }}</a-col>
+          <a-col :span="10" class="university__article-text">
+            {{ university.regularAdmissionDeadline }}
+          </a-col>
         </a-row>
         <a-row>
           <a-col :span="14" class="university__article-text"
             >Bachelor cost:</a-col
           >
-          <a-col :span="10" class="university__article-text">{{
-            university.bachelorCost
-          }}</a-col>
+          <a-col :span="10" class="university__article-text">
+            {{ university.bachelorCost }}
+          </a-col>
         </a-row>
       </a-col>
     </a-row>
@@ -36,16 +36,19 @@
       <a-col :span="8">
         <a-statistic
           title="Acceptance rate"
-          :value="university.acceptanceRate"
+          :value="getPercents(university.acceptanceRate)"
         />
       </a-col>
       <a-col :span="8">
-        <a-statistic title="IELTS score" :value="university.minIelts" />
+        <a-statistic
+          title="IELTS score"
+          :value="getUniversityScore(university.minIelts)"
+        />
       </a-col>
       <a-col :span="8">
         <a-statistic
           title="Motivation letter"
-          :value="university.motivationLetter"
+          :value="getBooleanText(university.motivationLetter)"
         />
       </a-col>
     </a-row>
@@ -53,14 +56,20 @@
       <a-col :span="8">
         <a-statistic
           title="Recommendation letter"
-          :value="university.recommendationLetter"
+          :value="getBooleanText(university.recommendationLetter)"
         />
       </a-col>
       <a-col :span="8">
-        <a-statistic title="SAT Reasoning" :value="university.minSat" />
+        <a-statistic
+          title="SAT Reasoning"
+          :value="getUniversityScore(university.minSat)"
+        />
       </a-col>
       <a-col :span="8">
-        <a-statistic title="SAT Subject" :value="university.minSatSubject" />
+        <a-statistic
+          title="SAT Subject"
+          :value="getUniversityScore(university.minSatSubject)"
+        />
       </a-col>
     </a-row>
   </div>
@@ -74,6 +83,17 @@ export default {
     return {
       university: {}
     };
+  },
+  methods: {
+    getPercents(number) {
+      return `${number * 100}%`;
+    },
+    getUniversityScore(score) {
+      return score ? score : "Not needed";
+    },
+    getBooleanText(flag) {
+      return flag ? "Needed" : "Not needed";
+    }
   },
   beforeMount() {
     const currentUniversityId = this.$route.params.id;
