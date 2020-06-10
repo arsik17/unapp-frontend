@@ -10,65 +10,71 @@
           <a-col :span="14" class="university__article-text"
             >Early admission deadline:</a-col
           >
-          <a-col :span="10" class="university__article-text">
-            {{ university.earlyAdmissionDeadline }}
-          </a-col>
+          <a-col :span="10" class="university__article-text">{{
+            university.earlyAdmissionDeadline
+          }}</a-col>
         </a-row>
         <a-row>
           <a-col :span="14" class="university__article-text"
             >Regular admission deadline:</a-col
           >
-          <a-col :span="10" class="university__article-text">
-            {{ university.regularAdmissionDeadline }}
-          </a-col>
+          <a-col :span="10" class="university__article-text">{{
+            university.regularAdmissionDeadline
+          }}</a-col>
         </a-row>
         <a-row>
           <a-col :span="14" class="university__article-text"
             >Bachelor cost:</a-col
           >
-          <a-col :span="10" class="university__article-text">
-            {{ university.bachelorCost }}
-          </a-col>
+          <a-col :span="10" class="university__article-text">{{
+            university.bachelorCost
+          }}</a-col>
         </a-row>
       </a-col>
     </a-row>
     <a-row type="flex" justify="space-between" class="university__grid-row">
       <a-col :span="8">
-        <a-statistic
+        <statistics
           title="Acceptance rate"
           :value="getPercents(university.acceptanceRate)"
+          tooltip="Acceptance rate"
         />
       </a-col>
       <a-col :span="8">
-        <a-statistic
+        <statistics
           title="IELTS score"
           :value="getUniversityScore(university.minIelts)"
+          tooltip="IELTS score"
         />
       </a-col>
       <a-col :span="8">
-        <a-statistic
+        <statistics
           title="Motivation letter"
           :value="getBooleanText(university.motivationLetter)"
+          tooltip="Motivation letter"
         />
       </a-col>
     </a-row>
     <a-row type="flex" justify="space-between" class="university__grid-row">
       <a-col :span="8">
-        <a-statistic
+        <statistics
           title="Recommendation letter"
           :value="getBooleanText(university.recommendationLetter)"
+          tooltip="Recommendation letter"
         />
       </a-col>
       <a-col :span="8">
-        <a-statistic
+        <statistics
           title="SAT Reasoning"
           :value="getUniversityScore(university.minSat)"
+          tooltip="SAT Reasoning"
         />
       </a-col>
       <a-col :span="8">
-        <a-statistic
+        <statistics
           title="SAT Subject"
           :value="getUniversityScore(university.minSatSubject)"
+          tooltip="SAT Subject"
         />
       </a-col>
     </a-row>
@@ -77,8 +83,12 @@
 
 <script>
 import request from "@/request/request";
+import Statistics from "@/components/university/Statistics";
 
 export default {
+  components: {
+    statistics: Statistics
+  },
   data() {
     return {
       university: {}
