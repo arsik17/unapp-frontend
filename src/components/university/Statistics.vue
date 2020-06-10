@@ -17,7 +17,7 @@ export default {
       type: String,
       default: ""
     },
-    value: String || Number,
+    value: [String, Number],
     tooltip: String
   }
 };

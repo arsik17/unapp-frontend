@@ -1,5 +1,5 @@
 <template>
-  <div class="university">
+  <div class="university" :class="{ visible: universityLoaded }">
     <h1 class="university__title">{{ university.name }}</h1>
     <a-row type="flex" justify="space-between">
       <a-col :span="14">
@@ -91,6 +91,11 @@ export default {
       university: {}
     };
   },
+  computed: {
+    universityLoaded() {
+      return Boolean(this.university.name);
+    }
+  },
   methods: {
     getPercents(number) {
       return `${number * 100}%`;
@@ -115,8 +120,13 @@ export default {
 <style scoped>
 .university {
   width: 90%;
+  display: none;
   margin: auto;
   padding-bottom: 50px;
+}
+
+.university.visible {
+  display: block;
 }
 
 .university__title {
