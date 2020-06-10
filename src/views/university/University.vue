@@ -10,25 +10,25 @@
           <a-col :span="14" class="university__article-text"
             >Early admission deadline:</a-col
           >
-          <a-col :span="10" class="university__article-text">{{
-            university.earlyAdmissionDeadline
-          }}</a-col>
+          <a-col :span="10" class="university__article-text">
+            {{ university.earlyAdmissionDeadline }}
+          </a-col>
         </a-row>
         <a-row>
           <a-col :span="14" class="university__article-text"
             >Regular admission deadline:</a-col
           >
-          <a-col :span="10" class="university__article-text">{{
-            university.regularAdmissionDeadline
-          }}</a-col>
+          <a-col :span="10" class="university__article-text">
+            {{ university.regularAdmissionDeadline }}
+          </a-col>
         </a-row>
         <a-row>
           <a-col :span="14" class="university__article-text"
             >Bachelor cost:</a-col
           >
-          <a-col :span="10" class="university__article-text">{{
-            university.bachelorCost
-          }}</a-col>
+          <a-col :span="10" class="university__article-text">
+            {{ university.bachelorCost }}
+          </a-col>
         </a-row>
       </a-col>
     </a-row>

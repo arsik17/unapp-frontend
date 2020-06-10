@@ -3,7 +3,9 @@
     <a-tooltip>
       <template slot="title">{{ tooltip }}</template>
       <p class="statistics__title statistics__item">{{ title }}</p>
-      <p class="statistics__value statistics__item">{{ value }}</p>
+      <p class="statistics__item">
+        <a-tag class="statistics__value" color="#6535c5">{{ value }}</a-tag>
+      </p>
     </a-tooltip>
   </div>
 </template>
@@ -27,7 +29,9 @@ export default {
 }
 
 .statistics__value {
-  color: #000000;
-  font-size: 26px;
+  margin-top: 10px;
+  padding: 7px 10px;
+  color: #ffffff;
+  font-size: 20px;
 }
 </style>
