@@ -5,31 +5,28 @@
       <a-col :span="14">
         <p class="university__description">{{ university.description }}</p>
       </a-col>
-      <a-col :span="8" class="university__article">
-        <a-row>
-          <a-col :span="14" class="university__article-text"
-            >Early admission deadline:</a-col
-          >
-          <a-col :span="10" class="university__article-text">
-            {{ university.earlyAdmissionDeadline }}
-          </a-col>
-        </a-row>
-        <a-row>
-          <a-col :span="14" class="university__article-text"
-            >Regular admission deadline:</a-col
-          >
-          <a-col :span="10" class="university__article-text">
-            {{ university.regularAdmissionDeadline }}
-          </a-col>
-        </a-row>
-        <a-row>
-          <a-col :span="14" class="university__article-text"
-            >Bachelor cost:</a-col
-          >
-          <a-col :span="10" class="university__article-text">
-            {{ university.bachelorCost }}
-          </a-col>
-        </a-row>
+    </a-row>
+    <a-row type="flex" justify="space-between" class="university__grid-row">
+      <a-col :span="8">
+        <statistics
+          title="Early admission deadline"
+          :value="university.earlyAdmissionDeadline"
+          tooltip="Early admission deadline"
+        />
+      </a-col>
+      <a-col :span="8">
+        <statistics
+          title="Regular admission deadline"
+          :value="university.regularAdmissionDeadline"
+          tooltip="Regular admission deadline"
+        />
+      </a-col>
+      <a-col :span="8">
+        <statistics
+          title="Bachelor cost"
+          :value="university.bachelorCost"
+          tooltip="Bachelor cost"
+        />
       </a-col>
     </a-row>
     <a-row type="flex" justify="space-between" class="university__grid-row">
@@ -119,11 +116,12 @@ export default {
 .university {
   width: 90%;
   margin: auto;
+  padding-bottom: 50px;
 }
 
 .university__title {
   margin-bottom: 40px;
-  font-size: 22px;
+  font-size: 26px;
 }
 
 .university__description {
