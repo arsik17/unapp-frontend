@@ -1,7 +1,11 @@
 <template>
   <div class="profile">
     <div class="profile__block profile__card-container">
-      <profile-card :user="currentUser" class="profile__card" />
+      <profile-card
+        v-show="currentUserLoaded"
+        :user="currentUser"
+        class="profile__card"
+      />
     </div>
     <div class="profile__block profile__content">
       <tabs />
@@ -20,6 +24,9 @@ export default {
     tabs: Tabs
   },
   computed: {
+    currentUserLoaded() {
+      return Boolean(this.currentUser.username);
+    },
     ...mapGetters(["currentUser"])
   },
   methods: {
