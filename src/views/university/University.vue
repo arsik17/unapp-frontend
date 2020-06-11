@@ -28,14 +28,14 @@
       <a-col :span="8">
         <statistics
           title="Early admission deadline"
-          :value="university.earlyAdmissionDeadline"
+          :value="getParsedDate(university.earlyAdmissionDeadline)"
           tooltip="Early admission deadline"
         />
       </a-col>
       <a-col :span="8">
         <statistics
           title="Regular admission deadline"
-          :value="university.regularAdmissionDeadline"
+          :value="getParsedDate(university.regularAdmissionDeadline)"
           tooltip="Regular admission deadline"
         />
       </a-col>
@@ -99,6 +99,7 @@
 <script>
 import request from "@/request/request";
 import Statistics from "@/components/university/Statistics";
+import moment from "moment";
 
 export default {
   components: {
@@ -123,6 +124,9 @@ export default {
     },
     getBooleanText(flag) {
       return flag ? "Needed" : "Not needed";
+    },
+    getParsedDate(date) {
+      return moment(date).format("DD.MM.YYYY");
     }
   },
   beforeMount() {
