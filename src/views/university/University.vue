@@ -13,15 +13,20 @@
         class="university__contacts-item"
       >
         <a-icon type="mail" theme="filled" class="university__contacts-icon" />
-        <span class="university__contacts__text">{{
-          university.officialEmail
-        }}</span>
+        <span class="university__contacts__text">
+          {{ university.officialEmail }}
+        </span>
       </a>
-      <a v-if="university.officialSite" class="university__contacts-item">
+      <a
+        v-if="university.officialSite"
+        target="_blank"
+        :href="university.officialSite"
+        class="university__contacts-item"
+      >
         <a-icon type="build" theme="filled" class="university__contacts-icon" />
-        <span class="university__contacts__text">{{
-          university.officialEmail
-        }}</span>
+        <span class="university__contacts__text">
+          {{ university.officialSite }}
+        </span>
       </a>
     </div>
     <a-row type="flex" justify="space-between" class="university__grid-row">
