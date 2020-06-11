@@ -9,9 +9,14 @@
     <p class="profile-card__from">
       Use UnApp from {{ getFormatedDate(user.createdAt) }}
     </p>
-    <div class="profile-card__info profile-card__location">
+    <div
+      v-if="user.country || user.city"
+      class="profile-card__info profile-card__location"
+    >
       <a-icon type="pushpin" theme="filled" class="profile-card__info-icon" />
-      <span>Taraz, Kazakhstan (mock)</span>
+      <span>{{
+        getUserLocation({ country: user.country, city: user.city })
+      }}</span>
     </div>
     <a
       :href="'mailto:' + user.email"
@@ -20,9 +25,13 @@
       <a-icon type="mail" theme="filled" class="profile-card__info-icon" />
       <span>{{ user.email }}</span>
     </a>
-    <a class="profile-card__info profile-card__social" href="tel:87071498484">
+    <a
+      v-if="user.phoneNumber"
+      class="profile-card__info profile-card__social"
+      :href="'tel:' + user.phoneNumber"
+    >
       <a-icon type="phone" theme="filled" class="profile-card__info-icon" />
-      <span>+7 (707) 149-84-48 (mock)</span>
+      <span>{{ user.phoneNumber }}</span>
     </a>
   </div>
 </template>
@@ -35,6 +44,12 @@ export default {
     user: Object
   },
   methods: {
+    getUserLocation({ country, city }) {
+      if (country && city) {
+        return `${city}, ${country}`;
+      }
+      return country || city;
+    },
     getFormatedDate(date) {
       return moment(date).format("DD.MM.YYYY");
     }
