@@ -93,6 +93,14 @@
         />
       </a-col>
     </a-row>
+    <div class="university__additional-requirements">
+      <h4 class="university__additional-requirements-title">
+        Additional requirements
+      </h4>
+      <p class="university__additional-requirements-list">
+        {{ university.exams }}
+      </p>
+    </div>
   </div>
 </template>
 
@@ -184,5 +192,13 @@ export default {
 
 .university__grid-row {
   margin-top: 40px;
+}
+
+.university__additional-requirements {
+  margin-top: 50px;
+}
+
+.university__additional-requirements-title {
+  font-size: 18px;
 }
 </style>
