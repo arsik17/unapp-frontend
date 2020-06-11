@@ -6,6 +6,24 @@
         <p class="university__description">{{ university.description }}</p>
       </a-col>
     </a-row>
+    <div class="university__contacts">
+      <a
+        v-if="university.officialEmail"
+        :href="'mailto:' + university.officialEmail"
+        class="university__contacts-item"
+      >
+        <a-icon type="mail" theme="filled" class="university__contacts-icon" />
+        <span class="university__contacts__text">{{
+          university.officialEmail
+        }}</span>
+      </a>
+      <a v-if="university.officialSite" class="university__contacts-item">
+        <a-icon type="build" theme="filled" class="university__contacts-icon" />
+        <span class="university__contacts__text">{{
+          university.officialEmail
+        }}</span>
+      </a>
+    </div>
     <a-row type="flex" justify="space-between" class="university__grid-row">
       <a-col :span="8">
         <statistics
@@ -137,6 +155,21 @@ export default {
 .university__description {
   font-size: 16px;
   font-weight: 500;
+}
+
+.university__contacts {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.university__contacts-item {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.university__contacts-icon {
+  margin-right: 10px;
 }
 
 .university__article-text {
