@@ -5,30 +5,48 @@
       alt="Profile picture"
       class="profile-card__avatar"
     />
-    <h3 class="profile-card__name">Sayazhan Onglassyn</h3>
-    <p class="profile-card__from">Use UnApp from 10.05.2020</p>
+    <h3 class="profile-card__name">{{ user.username }}</h3>
+    <p class="profile-card__from">
+      Use UnApp from {{ getFormatedDate(user.createdAt) }}
+    </p>
     <div class="profile-card__info profile-card__location">
       <a-icon type="pushpin" theme="filled" class="profile-card__info-icon" />
-      <span>Taraz, Kazakhstan</span>
+      <span>Taraz, Kazakhstan (mock)</span>
     </div>
-    <div class="profile-card__info profile-card__social">
-      <a-icon type="facebook" theme="filled" class="profile-card__info-icon" />
-      <span>Saydzhon</span>
-    </div>
+    <a
+      :href="'mailto:' + user.email"
+      class="profile-card__info profile-card__social"
+    >
+      <a-icon type="mail" theme="filled" class="profile-card__info-icon" />
+      <span>{{ user.email }}</span>
+    </a>
     <a class="profile-card__info profile-card__social" href="tel:87071498484">
       <a-icon type="phone" theme="filled" class="profile-card__info-icon" />
-      <span>+7 (707) 149-84-48</span>
+      <span>+7 (707) 149-84-48 (mock)</span>
     </a>
   </div>
 </template>
 
 <script>
-export default {};
+import moment from "moment";
+
+export default {
+  props: {
+    user: Object
+  },
+  methods: {
+    getFormatedDate(date) {
+      return moment(date).format("DD.MM.YYYY");
+    }
+  }
+};
 </script>
 
 <style scoped>
 .profile-card {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .profile-card__avatar {

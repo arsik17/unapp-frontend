@@ -1,7 +1,7 @@
 <template>
   <div class="profile">
     <div class="profile__block profile__card-container">
-      <profile-card class="profile__card" />
+      <profile-card :user="currentUser" class="profile__card" />
     </div>
     <div class="profile__block profile__content">
       <tabs />
@@ -12,11 +12,21 @@
 <script>
 import ProfileCard from "@/components/common/profileCard/ProfileCard";
 import Tabs from "@/components/profile/tabs/Tabs";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   components: {
     "profile-card": ProfileCard,
     tabs: Tabs
+  },
+  computed: {
+    ...mapGetters(["currentUser"])
+  },
+  methods: {
+    ...mapActions(["fetchCurrentUser"])
+  },
+  beforeMount() {
+    this.fetchCurrentUser();
   }
 };
 </script>
