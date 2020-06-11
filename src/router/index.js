@@ -10,6 +10,7 @@ import Login from "@/views/auth/Login";
 import Register from "@/views/auth/Register";
 
 import Universities from "@/views/universities/Universities";
+import University from "@/views/university/University";
 import Profile from "@/views/profile/Profile";
 
 Vue.use(VueRouter);
@@ -32,6 +33,11 @@ const routes = [
         path: "universities",
         name: "universities",
         component: Universities
+      },
+      {
+        path: "universities/:id",
+        name: "university",
+        component: University
       },
       {
         path: "profile",
