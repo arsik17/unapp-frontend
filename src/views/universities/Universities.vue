@@ -6,14 +6,19 @@
       :pagination="false"
     >
       <span slot="name" slot-scope="record">
-        <router-link :to="'/universities/' + record.id">{{
-          record.name
-        }}</router-link>
+        <router-link :to="'/universities/' + record.id">
+          {{ record.name }}
+        </router-link>
       </span>
       <span slot="scholarship" slot-scope="scholarship">
-        <a-tag :color="getScholarshipColor(scholarship)">{{
-          scholarship.toUpperCase()
-        }}</a-tag>
+        <a-tag :color="getScholarshipColor(scholarship)">
+          {{ scholarship.toUpperCase() }}
+        </a-tag>
+      </span>
+      <span slot="save" slot-scope="record">
+        <a-button type="primary" @click="saveUniversity(record.id)"
+          >Save</a-button
+        >
       </span>
     </a-table>
   </div>
@@ -48,6 +53,10 @@ const columns = [
     title: "Cost",
     dataIndex: "bachelorCost",
     key: "cost"
+  },
+  {
+    key: "save",
+    scopedSlots: { customRender: "save" }
   }
 ];
 
