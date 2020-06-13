@@ -1,15 +1,28 @@
 <template>
   <div class="saved-universities">
+    <a-row
+      type="flex"
+      justify="space-between"
+      class="saved-universities__controls"
+    >
+      <a-button
+        @click="$router.push('/universities')"
+        type="primary"
+        icon="plus-circle"
+        :disabled="savedUniversities.length >= maxSavedUniversities"
+        >Add university</a-button
+      >
+    </a-row>
     <a-table :columns="columns" :data-source="tableData" :pagination="false">
       <span slot="name" slot-scope="record">
-        <router-link :to="'/universities/' + record.id">{{
-          record.name
-        }}</router-link>
+        <router-link :to="'/universities/' + record.id">
+          {{ record.name }}
+        </router-link>
       </span>
       <span slot="scholarship" slot-scope="scholarship">
-        <a-tag :color="getScholarshipColor(scholarship)">{{
-          scholarship.toUpperCase()
-        }}</a-tag>
+        <a-tag :color="getScholarshipColor(scholarship)">
+          {{ scholarship.toUpperCase() }}
+        </a-tag>
       </span>
       <span slot="save" slot-scope="record">
         <a-button @click="removeUniversity(record.id)">Remove</a-button>
@@ -58,7 +71,8 @@ const columns = [
 export default {
   data() {
     return {
-      columns
+      columns,
+      maxSavedUniversities: universitiesConfig.maxSavedUniversities
     };
   },
   computed: {
@@ -111,4 +125,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.saved-universities__controls {
+  margin-bottom: 20px;
+}
+</style>
