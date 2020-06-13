@@ -13,9 +13,9 @@
         class="university__contacts-item"
       >
         <a-icon type="mail" theme="filled" class="university__contacts-icon" />
-        <span class="university__contacts__text">
-          {{ university.officialEmail }}
-        </span>
+        <span class="university__contacts__text">{{
+          university.officialEmail
+        }}</span>
       </a>
       <a
         v-if="university.officialSite"
@@ -24,9 +24,9 @@
         class="university__contacts-item"
       >
         <a-icon type="build" theme="filled" class="university__contacts-icon" />
-        <span class="university__contacts__text">
-          {{ university.officialSite }}
-        </span>
+        <span class="university__contacts__text">{{
+          university.officialSite
+        }}</span>
       </a>
     </div>
     <a-row type="flex" justify="space-between" class="university__grid-row">
@@ -111,7 +111,7 @@
 
 <script>
 import request from "@/request/request";
-import Statistics from "@/components/university/Statistics";
+import Statistics from "@/components/university/statistics/Statistics";
 import moment from "moment";
 
 export default {
