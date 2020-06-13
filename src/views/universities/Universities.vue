@@ -6,14 +6,14 @@
       :pagination="false"
     >
       <span slot="name" slot-scope="record">
-        <router-link :to="'/universities/' + record.id">
-          {{ record.name }}
-        </router-link>
+        <router-link :to="'/universities/' + record.id">{{
+          record.name
+        }}</router-link>
       </span>
       <span slot="scholarship" slot-scope="scholarship">
-        <a-tag :color="getScholarshipColor(scholarship)">
-          {{ scholarship.toUpperCase() }}
-        </a-tag>
+        <a-tag :color="getScholarshipColor(scholarship)">{{
+          scholarship.toUpperCase()
+        }}</a-tag>
       </span>
       <span slot="save" slot-scope="record">
         <a-button v-if="record.saved" @click="removeUniversity(record.id)"
@@ -76,11 +76,13 @@ export default {
         item.rating = item.rating || "";
         item.scholarship = item.scholarship || "";
         item.bachelorCost = item.bachelorCost || "";
-        item.saved = this.savedUniversities.includes(item._id);
+        item.saved = this.savedUniversities.find(
+          university => university._id === item._id
+        );
         return item;
       });
     },
-    ...mapGetters(["universities", "savedUniversities"])
+    ...mapGetters(["universities", "savedUniversities", "currentUser"])
   },
   methods: {
     getScholarshipColor(scholarship) {
@@ -92,12 +94,19 @@ export default {
       return scholarshipColors[scholarship];
     },
     saveUniversity(id) {
-      console.log("Saving university", id);
+      const savedUniversitiesIds = this.savedUniversities.map(
+        university => university._id
+      );
+      const updatedSavedUniversities = [...savedUniversitiesIds, id];
+      this.updateSavedUniversities({
+        userId: this.currentUser._id,
+        savedUniversities: updatedSavedUniversities
+      });
     },
     removeUniversity(id) {
       console.log("Removing university", id);
     },
-    ...mapActions(["fetchUniversities"])
+    ...mapActions(["fetchUniversities", "updateSavedUniversities"])
   },
   beforeMount() {
     this.fetchUniversities();
