@@ -6,14 +6,14 @@
       :pagination="false"
     >
       <span slot="name" slot-scope="record">
-        <router-link :to="'/universities/' + record.id">{{
-          record.name
-        }}</router-link>
+        <router-link :to="'/universities/' + record.id">
+          {{ record.name }}
+        </router-link>
       </span>
       <span slot="scholarship" slot-scope="scholarship">
-        <a-tag :color="getScholarshipColor(scholarship)">{{
-          scholarship.toUpperCase()
-        }}</a-tag>
+        <a-tag :color="getScholarshipColor(scholarship)">
+          {{ scholarship.toUpperCase() }}
+        </a-tag>
       </span>
       <span slot="save" slot-scope="record">
         <a-button v-if="record.saved" @click="removeUniversity(record.id)"
@@ -93,9 +93,12 @@ export default {
       };
       return scholarshipColors[scholarship];
     },
+    getSavedUniversitiesIds(savedUniversities) {
+      return savedUniversities.map(university => university._id);
+    },
     saveUniversity(id) {
-      const savedUniversitiesIds = this.savedUniversities.map(
-        university => university._id
+      const savedUniversitiesIds = this.getSavedUniversitiesIds(
+        this.savedUniversities
       );
       const updatedSavedUniversities = [...savedUniversitiesIds, id];
       this.updateSavedUniversities({
@@ -104,7 +107,16 @@ export default {
       });
     },
     removeUniversity(id) {
-      console.log("Removing university", id);
+      const savedUniversitiesIds = this.getSavedUniversitiesIds(
+        this.savedUniversities
+      );
+      const updatedSavedUniversities = savedUniversitiesIds.filter(
+        universityId => universityId !== id
+      );
+      this.updateSavedUniversities({
+        userId: this.currentUser._id,
+        savedUniversities: updatedSavedUniversities
+      });
     },
     ...mapActions(["fetchUniversities", "updateSavedUniversities"])
   },
