@@ -20,6 +20,7 @@ export default {
     }
   },
   getters: {
-    currentUser: state => state.currentUser
+    currentUser: state => state.currentUser,
+    savedUniversities: state => state.currentUser.savedUniversities || []
   }
 };
