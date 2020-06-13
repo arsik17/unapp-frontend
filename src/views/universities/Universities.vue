@@ -6,17 +6,20 @@
       :pagination="false"
     >
       <span slot="name" slot-scope="record">
-        <router-link :to="'/universities/' + record.id">{{
-          record.name
-        }}</router-link>
+        <router-link :to="'/universities/' + record.id">
+          {{ record.name }}
+        </router-link>
       </span>
       <span slot="scholarship" slot-scope="scholarship">
-        <a-tag :color="getScholarshipColor(scholarship)">{{
-          scholarship.toUpperCase()
-        }}</a-tag>
+        <a-tag :color="getScholarshipColor(scholarship)">
+          {{ scholarship.toUpperCase() }}
+        </a-tag>
       </span>
       <span slot="save" slot-scope="record">
-        <a-button type="primary" @click="saveUniversity(record.id)"
+        <a-button v-if="record.saved" @click="removeUniversity(record.id)"
+          >Remove</a-button
+        >
+        <a-button v-else type="primary" @click="saveUniversity(record.id)"
           >Save</a-button
         >
       </span>
@@ -73,10 +76,11 @@ export default {
         item.rating = item.rating || "";
         item.scholarship = item.scholarship || "";
         item.bachelorCost = item.bachelorCost || "";
+        item.saved = this.savedUniversities.includes(item._id);
         return item;
       });
     },
-    ...mapGetters(["universities"])
+    ...mapGetters(["universities", "savedUniversities"])
   },
   methods: {
     getScholarshipColor(scholarship) {
@@ -86,6 +90,12 @@ export default {
         partial: "orange"
       };
       return scholarshipColors[scholarship];
+    },
+    saveUniversity(id) {
+      console.log("Saving university", id);
+    },
+    removeUniversity(id) {
+      console.log("Removing university", id);
     },
     ...mapActions(["fetchUniversities"])
   },
