@@ -2,14 +2,14 @@
   <div class="saved-universities">
     <a-table :columns="columns" :data-source="tableData" :pagination="false">
       <span slot="name" slot-scope="record">
-        <router-link :to="'/universities/' + record.id">
-          {{ record.name }}
-        </router-link>
+        <router-link :to="'/universities/' + record.id">{{
+          record.name
+        }}</router-link>
       </span>
       <span slot="scholarship" slot-scope="scholarship">
-        <a-tag :color="getScholarshipColor(scholarship)">
-          {{ scholarship.toUpperCase() }}
-        </a-tag>
+        <a-tag :color="getScholarshipColor(scholarship)">{{
+          scholarship.toUpperCase()
+        }}</a-tag>
       </span>
       <span slot="save" slot-scope="record">
         <a-button @click="removeUniversity(record.id)">Remove</a-button>
@@ -20,6 +20,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import universitiesConfig from "@/config/universities";
 
 const columns = [
   {
@@ -85,12 +86,7 @@ export default {
   },
   methods: {
     getScholarshipColor(scholarship) {
-      const scholarshipColors = {
-        full: "green",
-        no: "volcano",
-        partial: "orange"
-      };
-      return scholarshipColors[scholarship];
+      return universitiesConfig.scholarshipColors[scholarship];
     },
     removeUniversity(id) {
       const savedUniversitiesIds = this.getSavedUniversitiesIds(

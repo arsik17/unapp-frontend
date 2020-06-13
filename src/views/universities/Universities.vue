@@ -6,14 +6,14 @@
       :pagination="false"
     >
       <span slot="name" slot-scope="record">
-        <router-link :to="'/universities/' + record.id">
-          {{ record.name }}
-        </router-link>
+        <router-link :to="'/universities/' + record.id">{{
+          record.name
+        }}</router-link>
       </span>
       <span slot="scholarship" slot-scope="scholarship">
-        <a-tag :color="getScholarshipColor(scholarship)">
-          {{ scholarship.toUpperCase() }}
-        </a-tag>
+        <a-tag :color="getScholarshipColor(scholarship)">{{
+          scholarship.toUpperCase()
+        }}</a-tag>
       </span>
       <span slot="save" slot-scope="record">
         <a-button v-if="record.saved" @click="removeUniversity(record.id)"
@@ -29,6 +29,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import universitiesConfig from "@/config/universities";
 
 const columns = [
   {
@@ -86,12 +87,7 @@ export default {
   },
   methods: {
     getScholarshipColor(scholarship) {
-      const scholarshipColors = {
-        full: "green",
-        no: "volcano",
-        partial: "orange"
-      };
-      return scholarshipColors[scholarship];
+      return universitiesConfig.scholarshipColors[scholarship];
     },
     getSavedUniversitiesIds(savedUniversities) {
       return savedUniversities.map(university => university._id);
@@ -103,8 +99,9 @@ export default {
       });
     },
     saveUniversity(id) {
-      const maxSavedUniversitiesNumber = 20;
-      if (this.savedUniversities.length >= maxSavedUniversitiesNumber) {
+      if (
+        this.savedUniversities.length >= universitiesConfig.maxSavedUniversities
+      ) {
         this.showTooManyUniversitiesError(
           "Too many saved universities",
           "You have to focus on your 20 primary universities"
