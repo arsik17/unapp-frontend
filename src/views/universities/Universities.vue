@@ -6,14 +6,14 @@
       :pagination="false"
     >
       <span slot="name" slot-scope="record">
-        <router-link :to="'/universities/' + record.id">
-          {{ record.name }}
-        </router-link>
+        <router-link :to="'/universities/' + record.id">{{
+          record.name
+        }}</router-link>
       </span>
       <span slot="scholarship" slot-scope="scholarship">
-        <a-tag :color="getScholarshipColor(scholarship)">
-          {{ scholarship.toUpperCase() }}
-        </a-tag>
+        <a-tag :color="getScholarshipColor(scholarship)">{{
+          scholarship.toUpperCase()
+        }}</a-tag>
       </span>
       <span slot="save" slot-scope="record">
         <a-button type="primary" @click="saveUniversity(record.id)"
@@ -70,6 +70,9 @@ export default {
     universitiesTableData() {
       return this.universities.map(item => {
         item.key = item._id;
+        item.rating = item.rating || "";
+        item.scholarship = item.scholarship || "";
+        item.bachelorCost = item.bachelorCost || "";
         return item;
       });
     },
