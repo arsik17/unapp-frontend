@@ -12,6 +12,7 @@ import Register from "@/views/auth/Register";
 import Universities from "@/views/universities/Universities";
 import University from "@/views/university/University";
 import Profile from "@/views/profile/Profile";
+import Search from "@/views/search/Search";
 
 Vue.use(VueRouter);
 
@@ -38,6 +39,11 @@ const routes = [
         path: "universities/:id",
         name: "university",
         component: University
+      },
+      {
+        path: "search",
+        name: "search",
+        component: Search
       },
       {
         path: "profile",

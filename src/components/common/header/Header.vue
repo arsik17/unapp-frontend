@@ -1,12 +1,6 @@
 <template>
   <header class="header">
-    <div class="header__left">
-      <a-input-search
-        placeholder="Search university"
-        class="header__search-field"
-        @search="onSearch"
-      />
-    </div>
+    <div class="header__left"></div>
     <div class="header__right">
       <div class="header__notifications-button">
         <a-badge count="5">
@@ -49,7 +43,7 @@ export default {
 
 <style scoped>
 .header {
-  height: 90px;
+  height: 10vh;
   padding: 0 4vw;
   display: flex;
   align-items: center;
