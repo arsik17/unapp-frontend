@@ -6,14 +6,14 @@
       :pagination="false"
     >
       <span slot="name" slot-scope="record">
-        <router-link :to="'/universities/' + record.id">
-          {{ record.name }}
-        </router-link>
+        <router-link :to="'/universities/' + record.id">{{
+          record.name
+        }}</router-link>
       </span>
       <span slot="scholarship" slot-scope="scholarship">
-        <a-tag :color="getScholarshipColor(scholarship)">
-          {{ scholarship.toUpperCase() }}
-        </a-tag>
+        <a-tag :color="getScholarshipColor(scholarship)">{{
+          scholarship.toUpperCase()
+        }}</a-tag>
       </span>
       <span slot="save" slot-scope="record">
         <a-button v-if="record.saved" @click="removeUniversity(record.id)"
@@ -96,7 +96,21 @@ export default {
     getSavedUniversitiesIds(savedUniversities) {
       return savedUniversities.map(university => university._id);
     },
+    showTooManyUniversitiesError(message, description) {
+      this.$notification["error"]({
+        message,
+        description
+      });
+    },
     saveUniversity(id) {
+      const maxSavedUniversitiesNumber = 20;
+      if (this.savedUniversities.length >= maxSavedUniversitiesNumber) {
+        this.showTooManyUniversitiesError(
+          "Too many saved universities",
+          "You have to focus on your 20 primary universities"
+        );
+        return;
+      }
       const savedUniversitiesIds = this.getSavedUniversitiesIds(
         this.savedUniversities
       );
