@@ -39,6 +39,7 @@
 </template>
 <script>
 import { mapActions } from "vuex";
+import { message } from "ant-design-vue";
 
 export default {
   data() {
@@ -75,14 +76,15 @@ export default {
   },
   methods: {
     handleSubmit() {
-      if (this.isFormValid()) {
-        const user = {
-          username: this.form.user,
-          email: this.form.email,
-          password: this.form.password
-        };
-        this.register(user).then(() => this.$router.push("/dashboard"));
-      }
+      message.info("Just wait. We will launch UnApp soon!");
+      // if (this.isFormValid()) {
+      //   const user = {
+      //     username: this.form.user,
+      //     email: this.form.email,
+      //     password: this.form.password
+      //   };
+      //   this.register(user).then(() => this.$router.push("/dashboard"));
+      // }
     },
     isFormValid() {
       let isValid = false;
