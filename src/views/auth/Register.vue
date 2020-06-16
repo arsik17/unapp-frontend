@@ -81,7 +81,7 @@ export default {
           email: this.form.email,
           password: this.form.password
         };
-        this.register(user).then(() => this.$router.push("/"));
+        this.register(user).then(() => this.$router.push("/dashboard"));
       }
     },
     isFormValid() {

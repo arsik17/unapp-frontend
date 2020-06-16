@@ -2,13 +2,15 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import store from "@/store/index";
 
+import EmptyLayout from "@/views/layouts/EmptyLayout";
 import DefaultLayout from "@/views/layouts/DefaultLayout";
+
 import Home from "@/views/home/Home.vue";
 
-import EmptyLayout from "@/views/layouts/EmptyLayout";
 import Login from "@/views/auth/Login";
 import Register from "@/views/auth/Register";
 
+import Dashboard from "@/views/dashboard/Dashboard";
 import Universities from "@/views/universities/Universities";
 import University from "@/views/university/University";
 import Profile from "@/views/profile/Profile";
@@ -18,16 +20,20 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "home",
+    component: Home
+  },
+  {
+    path: "/",
     component: DefaultLayout,
     meta: {
       requiresAuth: true
     },
     children: [
       {
-        path: "",
-        name: "index",
-        component: Home
+        path: "dashboard",
+        name: "dashboard",
+        component: Dashboard
       },
       {
         path: "universities",

@@ -8,9 +8,9 @@
       />
     </h2>
     <div class="nav__links">
-      <router-link to="/" exact class="nav__link">
+      <router-link to="/dashboard" exact class="nav__link">
         <a-icon type="home" theme="filled" class="nav__icon" />
-        <span class="nav__link-text">Home</span>
+        <span class="nav__link-text">Dashboard</span>
       </router-link>
       <router-link to="/universities" class="nav__link">
         <a-icon type="bank" theme="filled" class="nav__icon" />
