@@ -1,11 +1,22 @@
 <template>
   <div class="home">
-    This is home page
+    <c-header />
   </div>
 </template>
 
 <script>
-export default {};
+import Header from "@/components/home/header/Header";
+
+export default {
+  components: {
+    "c-header": Header
+  }
+};
 </script>
 
-<style scoped></style>
+<style scoped>
+.home {
+  max-width: 980px;
+  margin: auto;
+}
+</style>
