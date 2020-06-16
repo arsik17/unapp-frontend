@@ -1,6 +1,8 @@
 <template>
   <section class="login">
-    <img src="@/assets/images/logo_light.svg" alt="Logo" class="login__logo" />
+    <router-link to="/"
+      ><img src="@/assets/images/logo_light.svg" alt="Logo" class="login__logo"
+    /></router-link>
     <a-form-model
       :model="form"
       @submit="handleSubmit"

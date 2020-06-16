@@ -1,10 +1,11 @@
 <template>
   <section class="register">
-    <img
-      src="@/assets/images/logo_light.svg"
-      alt="Logo"
-      class="register__logo"
-    />
+    <router-link to="/"
+      ><img
+        src="@/assets/images/logo_light.svg"
+        alt="Logo"
+        class="register__logo"
+    /></router-link>
     <a-form-model
       :model="form"
       @submit="handleSubmit"
