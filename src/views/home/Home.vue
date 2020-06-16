@@ -1,49 +1,69 @@
 <template>
   <div class="home">
-    <div class="card">
-      <div class="card__text">
-        <h2 class="card__heading">Find University of your dream</h2>
-        <p class="card__paragraph">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
-          provident molestias nam quos. Consectetur impedit eaque explicabo odit
-          sit ullam.
-        </p>
-        <a-button type="primary" size="large">Find something awesome</a-button>
-      </div>
-      <img src="@/assets/images/swinging_doodle.svg" alt="Swinging doodle" />
-    </div>
+    <c-header class="header" />
+    <intro class="intro" />
+    <general class="general" />
+    <university class="university" />
+    <save class="save" />
+    <collaboration class="collaboration" />
+    <users class="users" />
+    <c-footer class="footer" />
   </div>
 </template>
 
 <script>
-export default {};
+import Header from "@/components/home/header/Header";
+import Intro from "@/components/home/intro/Intro";
+import General from "@/components/home/general/General";
+import University from "@/components/home/university/University";
+import Save from "@/components/home/save/Save";
+import Collaboration from "@/components/home/collaboration/Collaboration";
+import Users from "@/components/home/users/Users";
+import Footer from "@/components/home/footer/Footer";
+
+export default {
+  components: {
+    "c-header": Header,
+    intro: Intro,
+    general: General,
+    university: University,
+    save: Save,
+    collaboration: Collaboration,
+    users: Users,
+    "c-footer": Footer
+  }
+};
 </script>
 
 <style scoped>
-.home {
-  width: 90%;
+.header {
+  max-width: 980px;
   margin: auto;
+  margin-bottom: 70px;
 }
 
-.card {
-  padding: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
+.intro,
+.general,
+.university,
+.save,
+.users {
+  max-width: 980px;
+  margin: auto;
+  margin-bottom: 100px;
 }
 
-.card__text {
-  width: 70%;
+.collaboration {
+  margin-bottom: 90px;
 }
 
-.card__heading {
-  font-size: 30px;
-}
-
-.card__paragraph {
-  margin-bottom: 20px;
+@media all and (max-width: 1000px) {
+  .header,
+  .intro,
+  .general,
+  .university,
+  .save,
+  .users {
+    max-width: 700px;
+  }
 }
 </style>

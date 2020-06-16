@@ -1,34 +1,38 @@
 <template>
-  <div class="universities">
-    <a-table
-      :columns="columns"
-      :data-source="universitiesTableData"
-      :pagination="false"
+  <div class="saved-universities">
+    <a-row
+      type="flex"
+      justify="space-between"
+      class="saved-universities__controls"
     >
+      <a-button
+        @click="$router.push('/universities')"
+        type="primary"
+        icon="plus-circle"
+        :disabled="savedUniversities.length >= maxSavedUniversities"
+        >Add university</a-button
+      >
+    </a-row>
+    <a-table :columns="columns" :data-source="tableData" :pagination="false">
       <span slot="name" slot-scope="record">
-        <router-link :to="'/universities/' + record.id">{{
-          record.name
-        }}</router-link>
+        <router-link :to="'/universities/' + record.id">
+          {{ record.name }}
+        </router-link>
       </span>
       <span slot="scholarship" slot-scope="scholarship">
-        <a-tag :color="getScholarshipColor(scholarship)">{{
-          scholarship.toUpperCase()
-        }}</a-tag>
+        <a-tag :color="getScholarshipColor(scholarship)">
+          {{ scholarship.toUpperCase() }}
+        </a-tag>
       </span>
       <span slot="save" slot-scope="record">
-        <a-button v-if="record.saved" @click="removeUniversity(record.id)"
-          >Remove</a-button
-        >
-        <a-button v-else type="primary" @click="saveUniversity(record.id)"
-          >Save</a-button
-        >
+        <a-button @click="removeUniversity(record.id)">Remove</a-button>
       </span>
     </a-table>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import universitiesConfig from "@/config/universities";
 
 const columns = [
@@ -67,12 +71,13 @@ const columns = [
 export default {
   data() {
     return {
-      columns
+      columns,
+      maxSavedUniversities: universitiesConfig.maxSavedUniversities
     };
   },
   computed: {
-    universitiesTableData() {
-      return this.universities.map(item => {
+    tableData() {
+      return this.filteredUniversities.map(item => {
         item.key = item._id;
         item.rating = item.rating || "";
         item.scholarship = item.scholarship || "";
@@ -83,39 +88,19 @@ export default {
         return item;
       });
     },
+    filteredUniversities() {
+      const savedUniversitiesIds = this.getSavedUniversitiesIds(
+        this.savedUniversities
+      );
+      return this.universities.filter(university =>
+        savedUniversitiesIds.includes(university._id)
+      );
+    },
     ...mapGetters(["universities", "savedUniversities", "currentUser"])
   },
   methods: {
     getScholarshipColor(scholarship) {
       return universitiesConfig.scholarshipColors[scholarship];
-    },
-    getSavedUniversitiesIds(savedUniversities) {
-      return savedUniversities.map(university => university._id);
-    },
-    showTooManyUniversitiesError(message, description) {
-      this.$notification["error"]({
-        message,
-        description
-      });
-    },
-    saveUniversity(id) {
-      if (
-        this.savedUniversities.length >= universitiesConfig.maxSavedUniversities
-      ) {
-        this.showTooManyUniversitiesError(
-          "Too many saved universities",
-          "You have to focus on your 20 primary universities"
-        );
-        return;
-      }
-      const savedUniversitiesIds = this.getSavedUniversitiesIds(
-        this.savedUniversities
-      );
-      const updatedSavedUniversities = [...savedUniversitiesIds, id];
-      this.updateSavedUniversities({
-        userId: this.currentUser._id,
-        savedUniversities: updatedSavedUniversities
-      });
     },
     removeUniversity(id) {
       const savedUniversitiesIds = this.getSavedUniversitiesIds(
@@ -129,6 +114,9 @@ export default {
         savedUniversities: updatedSavedUniversities
       });
     },
+    getSavedUniversitiesIds(savedUniversities) {
+      return savedUniversities.map(university => university._id);
+    },
     ...mapActions(["fetchUniversities", "updateSavedUniversities"])
   },
   beforeMount() {
@@ -138,8 +126,7 @@ export default {
 </script>
 
 <style scoped>
-.universities {
-  width: 90%;
-  margin: auto;
+.saved-universities__controls {
+  margin-bottom: 20px;
 }
 </style>

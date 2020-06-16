@@ -34,7 +34,17 @@ instance.interceptors.response.use(
       store.commit("logout");
       router.push("/auth/login");
     }
-    message.error({ content: "Error", key });
+    try {
+      const messages = err.response.data.message[0].messages;
+      const errorMessage = messages[0].message;
+      if (errorMessage) {
+        message.error({ content: errorMessage, key });
+      } else {
+        message.error({ content: "Someting went wrong", key });
+      }
+    } catch {
+      message.error({ content: "Someting went wrong", key });
+    }
     return Promise.reject(err);
   }
 );
