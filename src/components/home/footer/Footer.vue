@@ -13,21 +13,25 @@
         <div class="footer__social-media social-media">
           <p class="social-media__text">Subscribe us on social media</p>
           <div class="social-media__icons">
-            <img
-              src="@/assets/images/instagram_icon.svg"
-              alt="Instagram logo"
-              class="social-media__icon"
-            />
-            <img
-              src="@/assets/images/vk_icon.svg"
-              alt="Vkontakte logo"
-              class="social-media__icon"
-            />
-            <img
-              src="@/assets/images/linkedin_icon.svg"
-              alt="LinkedIn logo"
-              class="social-media__icon"
-            />
+            <router-link to="https://www.instagram.com/unapp_study/">
+              <img
+                src="@/assets/images/instagram_icon.svg"
+                alt="Instagram logo"
+                class="social-media__icon"
+            /></router-link>
+            <router-link to="https://vk.com/unapp_study">
+              <img
+                src="@/assets/images/vk_icon.svg"
+                style="height: 20px"
+                alt="Vkontakte logo"
+                class="social-media__icon"
+            /></router-link>
+            <router-link to="https://www.linkedin.com/company/54283889/">
+              <img
+                src="@/assets/images/linkedin_icon.svg"
+                alt="LinkedIn logo"
+                class="social-media__icon"
+            /></router-link>
           </div>
         </div>
         <p class="social-media__copyright">&copy; UnApp</p>
@@ -76,6 +80,11 @@
   margin-top: 14px;
   font-size: 18px;
   color: #ffffff;
+}
+
+.social-media__icons {
+  display: flex;
+  align-items: flex-end;
 }
 
 .social-media__icon {

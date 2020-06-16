@@ -21,7 +21,7 @@
           >
           <a-button
             type="primary"
-            class="collaboration__secondary-button collaboration__button"
+            class="collaboration__instagram-button collaboration__button"
             size="large"
           >
             <img
@@ -84,9 +84,7 @@
   margin-right: 5px;
 }
 
-.collaboration__secondary-button {
+.collaboration__instagram-button {
   margin-left: 15px;
-  background-color: #fac738;
-  border-color: #fac738;
 }
 </style>

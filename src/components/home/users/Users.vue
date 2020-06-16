@@ -22,7 +22,7 @@
         >
         <a-button
           type="primary"
-          class="users__secondary-button users__button"
+          class="users__instagram-button users__button"
           size="large"
         >
           <img
@@ -81,9 +81,7 @@
   margin-right: 5px;
 }
 
-.users__secondary-button {
+.users__instagram-button {
   margin-left: 15px;
-  background-color: #fac738;
-  border-color: #fac738;
 }
 </style>
