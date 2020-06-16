@@ -70,12 +70,6 @@
   font-weight: 500;
 }
 
-.collaboration__secondary-button {
-  margin-left: 15px;
-  background-color: #fac738;
-  border-color: #fac738;
-}
-
 .collaboration__buttons {
   display: flex;
 }
@@ -88,5 +82,11 @@
 .collaboration__button-icon {
   height: 15px;
   margin-right: 5px;
+}
+
+.collaboration__secondary-button {
+  margin-left: 15px;
+  background-color: #fac738;
+  border-color: #fac738;
 }
 </style>

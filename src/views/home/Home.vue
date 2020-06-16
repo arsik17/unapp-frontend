@@ -6,6 +6,7 @@
     <university class="university" />
     <save class="save" />
     <collaboration class="collaboration" />
+    <users class="users" />
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import General from "@/components/home/general/General";
 import University from "@/components/home/university/University";
 import Save from "@/components/home/save/Save";
 import Collaboration from "@/components/home/collaboration/Collaboration";
+import Users from "@/components/home/users/Users";
 
 export default {
   components: {
@@ -24,7 +26,8 @@ export default {
     general: General,
     university: University,
     save: Save,
-    collaboration: Collaboration
+    collaboration: Collaboration,
+    users: Users
   }
 };
 </script>
@@ -39,9 +42,14 @@ export default {
 .intro,
 .general,
 .university,
-.save {
+.save,
+.users {
   max-width: 980px;
   margin: auto;
   margin-bottom: 100px;
+}
+
+.collaboration {
+  margin-bottom: 90px;
 }
 </style>
