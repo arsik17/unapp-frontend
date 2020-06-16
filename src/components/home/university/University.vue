@@ -6,7 +6,11 @@
         Get access to all needed information about university in one click. No
         need to surf the internet looking for deadlines.
       </p>
-      <a-button type="primary" size="large" class="university__button"
+      <a-button
+        @click="$router.push('/auth/login')"
+        type="primary"
+        size="large"
+        class="university__button"
         >Search university</a-button
       >
     </div>

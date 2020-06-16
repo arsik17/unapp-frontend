@@ -11,7 +11,11 @@
         UnApp provides full-featured university list and advanced search which
         you can use to easily find the perfect university for youself
       </p>
-      <a-button type="primary" size="large" class="general__button"
+      <a-button
+        @click="$router.push('/auth/login')"
+        type="primary"
+        size="large"
+        class="general__button"
         >I cannot wait to join!</a-button
       >
     </div>

@@ -7,7 +7,11 @@
         with scattered information?
         <span class="intro__bold-text">UnApp can help you!</span>
       </p>
-      <a-button type="primary" size="large" class="intro__button"
+      <a-button
+        @click="$router.push('/auth/login')"
+        type="primary"
+        size="large"
+        class="intro__button"
         >Find something awesome</a-button
       >
       <p class="intro__account-text">

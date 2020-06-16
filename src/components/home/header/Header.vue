@@ -11,7 +11,12 @@
       <router-link to="/auth/register" class="header__sign-up"
         >Sign Up</router-link
       >
-      <a-button type="primary" class="header__log-in">Log In</a-button>
+      <a-button
+        @click="$router.push('/auth/login')"
+        type="primary"
+        class="header__log-in"
+        >Log In</a-button
+      >
     </div>
   </header>
 </template>
