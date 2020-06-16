@@ -12,7 +12,12 @@
         to make UnApp better you are welcome to write us on social media
       </p>
       <div class="users__buttons">
-        <a-button type="primary" size="large" class="users__button">
+        <a-button
+          @click="openPage('https://vk.com/unapp_study')"
+          type="primary"
+          size="large"
+          class="users__button"
+        >
           <img
             src="@/assets/images/vk_icon.svg"
             alt="VK icon"
@@ -22,6 +27,7 @@
           Vkontakte</a-button
         >
         <a-button
+          @click="openPage('https://www.instagram.com/unapp_study/')"
           type="primary"
           class="users__instagram-button users__button"
           size="large"
@@ -37,6 +43,16 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  methods: {
+    openPage(href) {
+      window.open(href, "_blank");
+    }
+  }
+};
+</script>
 
 <style scoped>
 .users {

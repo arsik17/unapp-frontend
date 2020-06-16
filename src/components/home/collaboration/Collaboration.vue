@@ -11,7 +11,12 @@
           UnApp is open for collaboration. Please contact us in social media
         </h1>
         <div class="collaboration__buttons">
-          <a-button type="primary" size="large" class="collaboration__button">
+          <a-button
+            @click="openPage('https://vk.com/unapp_study')"
+            type="primary"
+            size="large"
+            class="collaboration__button"
+          >
             <img
               src="@/assets/images/vk_icon.svg"
               alt="VK icon"
@@ -21,6 +26,7 @@
             Vkontakte</a-button
           >
           <a-button
+            @click="openPage('https://www.instagram.com/unapp_study/')"
             type="primary"
             class="collaboration__instagram-button collaboration__button"
             size="large"
@@ -37,6 +43,16 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  methods: {
+    openPage(href) {
+      window.open(href, "_blank");
+    }
+  }
+};
+</script>
 
 <style scoped>
 .collaboration {
