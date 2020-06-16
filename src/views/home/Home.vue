@@ -7,6 +7,7 @@
     <save class="save" />
     <collaboration class="collaboration" />
     <users class="users" />
+    <c-footer class="footer" />
   </div>
 </template>
 
@@ -18,6 +19,7 @@ import University from "@/components/home/university/University";
 import Save from "@/components/home/save/Save";
 import Collaboration from "@/components/home/collaboration/Collaboration";
 import Users from "@/components/home/users/Users";
+import Footer from "@/components/home/footer/Footer";
 
 export default {
   components: {
@@ -27,7 +29,8 @@ export default {
     university: University,
     save: Save,
     collaboration: Collaboration,
-    users: Users
+    users: Users,
+    "c-footer": Footer
   }
 };
 </script>
