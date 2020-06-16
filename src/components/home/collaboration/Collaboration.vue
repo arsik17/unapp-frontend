@@ -8,13 +8,14 @@
       />
       <div class="collaboration__text-container">
         <h1 class="collaboration__heading">
-          UnApp is open for collaboration. Please contact us in social media ;)
+          UnApp is open for collaboration. Please contact us in social media
         </h1>
         <div class="collaboration__buttons">
           <a-button type="primary" size="large" class="collaboration__button">
             <img
               src="@/assets/images/vk_icon.svg"
               alt="VK icon"
+              style="height: 11px"
               class="collaboration__button-icon"
             />
             Vkontakte</a-button
@@ -86,5 +87,61 @@
 
 .collaboration__instagram-button {
   margin-left: 15px;
+}
+
+@media all and (max-width: 1000px) {
+  .collaboration__container {
+    max-width: 700px;
+  }
+
+  .collaboration__heading {
+    font-size: 20px;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .collaboration__container {
+    width: 60%;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .collaboration__image {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .collaboration__text-container {
+    width: 80%;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .collaboration__heading {
+    text-align: center;
+  }
+}
+
+@media all and (max-width: 540px) {
+  .collaboration__container {
+    width: 80%;
+  }
+
+  .collaboration__buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .collaboration__button {
+    width: 100%;
+    margin: 0;
+  }
+
+  .collaboration__button:first-child {
+    margin-bottom: 20px;
+  }
 }
 </style>

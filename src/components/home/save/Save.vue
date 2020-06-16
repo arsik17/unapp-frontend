@@ -44,4 +44,36 @@
   line-height: 1.3;
   font-size: 18px;
 }
+
+@media all and (max-width: 1000px) {
+  .save__heading {
+    font-size: 30px;
+  }
+
+  .save__paragraph {
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .save {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .save__image {
+    width: 50%;
+  }
+
+  .save__text-container {
+    width: 80%;
+    margin-top: 30px;
+  }
+}
+
+@media all and (max-width: 540px) {
+  .save__image {
+    width: 70%;
+  }
+}
 </style>

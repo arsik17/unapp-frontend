@@ -30,6 +30,10 @@
   align-items: center;
 }
 
+.intro__image {
+  width: 50%;
+}
+
 .intro__heading {
   margin: 0 0 20px;
   line-height: 1.2;
@@ -57,5 +61,31 @@
   margin-top: 20px;
   font-size: 16px;
   color: #555555;
+}
+
+@media all and (max-width: 1000px) {
+  .intro__heading {
+    font-size: 30px;
+  }
+
+  .intro__paragraph {
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .intro {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .intro__image {
+    width: 70%;
+  }
+
+  .intro__text-container {
+    width: 80%;
+    margin-top: 30px;
+  }
 }
 </style>

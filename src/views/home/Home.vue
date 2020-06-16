@@ -55,4 +55,15 @@ export default {
 .collaboration {
   margin-bottom: 90px;
 }
+
+@media all and (max-width: 1000px) {
+  .header,
+  .intro,
+  .general,
+  .university,
+  .save,
+  .users {
+    max-width: 700px;
+  }
+}
 </style>

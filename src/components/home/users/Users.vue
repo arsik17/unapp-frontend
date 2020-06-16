@@ -16,6 +16,7 @@
           <img
             src="@/assets/images/vk_icon.svg"
             alt="VK icon"
+            style="height: 11px"
             class="users__button-icon"
           />
           Vkontakte</a-button
@@ -83,5 +84,40 @@
 
 .users__instagram-button {
   margin-left: 15px;
+}
+
+@media all and (max-width: 1000px) {
+  .users__heading {
+    font-size: 30px;
+  }
+
+  .users__paragraph {
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .users {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .users__image {
+    width: 50%;
+  }
+
+  .users__text-container {
+    width: 80%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media all and (max-width: 540px) {
+  .users__image {
+    width: 70%;
+  }
 }
 </style>

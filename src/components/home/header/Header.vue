@@ -38,4 +38,14 @@
 .header__log-in {
   font-weight: 500;
 }
+
+@media all and (max-width: 800px) {
+  .header {
+    width: 85%;
+  }
+
+  .header__sign-up {
+    margin-right: 10px;
+  }
+}
 </style>

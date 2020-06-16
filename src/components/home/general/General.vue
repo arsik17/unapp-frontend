@@ -51,4 +51,36 @@
 .general__button {
   font-weight: 500;
 }
+
+@media all and (max-width: 1000px) {
+  .general__heading {
+    font-size: 30px;
+  }
+
+  .general__paragraph {
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .general {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .general__image {
+    width: 50%;
+  }
+
+  .general__text-container {
+    width: 80%;
+    margin-top: 30px;
+  }
+}
+
+@media all and (max-width: 540px) {
+  .general__image {
+    width: 70%;
+  }
+}
 </style>

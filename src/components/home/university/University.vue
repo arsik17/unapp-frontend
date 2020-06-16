@@ -51,4 +51,36 @@
 .university__button {
   font-weight: 500;
 }
+
+@media all and (max-width: 1000px) {
+  .university__heading {
+    font-size: 30px;
+  }
+
+  .university__paragraph {
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .university {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .university__image {
+    width: 50%;
+  }
+
+  .university__text-container {
+    width: 80%;
+    margin-top: 30px;
+  }
+}
+
+@media all and (max-width: 540px) {
+  .university__image {
+    width: 70%;
+  }
+}
 </style>

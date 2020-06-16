@@ -13,34 +13,32 @@
         <div class="footer__social-media social-media">
           <p class="social-media__text">Subscribe us on social media</p>
           <div class="social-media__icons">
-            <router-link to="https://www.instagram.com/unapp_study/">
+            <a href="https://www.instagram.com/unapp_study/" target="_blank">
               <img
                 src="@/assets/images/instagram_icon.svg"
                 alt="Instagram logo"
                 class="social-media__icon"
-            /></router-link>
-            <router-link to="https://vk.com/unapp_study">
+            /></a>
+            <a href="https://vk.com/unapp_study" target="_blank">
               <img
                 src="@/assets/images/vk_icon.svg"
                 style="height: 20px"
                 alt="Vkontakte logo"
                 class="social-media__icon"
-            /></router-link>
-            <router-link to="https://www.linkedin.com/company/54283889/">
+            /></a>
+            <a
+              href="https://www.linkedin.com/company/54283889/"
+              target="_blank"
+            >
               <img
                 src="@/assets/images/linkedin_icon.svg"
                 alt="LinkedIn logo"
                 class="social-media__icon"
-            /></router-link>
+            /></a>
           </div>
         </div>
         <p class="social-media__copyright">&copy; UnApp</p>
       </div>
-      <img
-        src="@/assets/images/sitting_doodle.svg"
-        alt="Sitting doodle"
-        class=""
-      />
     </div>
   </footer>
 </template>
@@ -52,7 +50,7 @@
 }
 
 .footer__container {
-  width: 980px;
+  max-width: 980px;
   margin: auto;
   padding: 50px 0;
   display: flex;
@@ -94,5 +92,17 @@
 
 .social-media__copyright {
   font-size: 18px;
+}
+
+@media all and (max-width: 1000px) {
+  .footer__container {
+    max-width: 700px;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .footer__container {
+    justify-content: center;
+  }
 }
 </style>
