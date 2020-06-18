@@ -9,8 +9,8 @@
       class="search__field"
       size="large"
       style="width: 50%"
-      placeholder="Search university"
-      enter-button
+      placeholder="Find University"
+      enter-button="Search"
       @search="onSearch"
     />
   </div>
@@ -18,12 +18,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      labelCol: { span: 4 },
-      wrapperCol: { span: 14 }
-    };
-  },
   methods: {
     onSearch() {
       console.log("Searching");
