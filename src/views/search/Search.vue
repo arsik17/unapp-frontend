@@ -1,11 +1,5 @@
 <template>
   <div class="box">
-    <v-filters
-      class="filters"
-      v-if="isFiltersUsed"
-      @closeFilters="closeFilters"
-    />
-
     <h1 class="search__title">UnApp</h1>
     <a-input-search
       class="search__box"
@@ -17,9 +11,25 @@
       enter-button
       @search="onSearch"
     />
-    <a-button type="primary" class="search__filter" @click="showFilters">
+    <a-button type="primary" @click="showModal" class="search__filter">
       Filters
     </a-button>
+    <a-modal v-model="visible" title="Filters" on-ok="handleOk" class="modal">
+      <template slot="footer">
+        <a-button key="back" @click="handleCancel">
+          Return
+        </a-button>
+        <a-button
+          key="submit"
+          type="primary"
+          :loading="loading"
+          @click="handleOk"
+        >
+          Submit
+        </a-button>
+      </template>
+      <v-filters class="filters" />
+    </a-modal>
   </div>
 </template>
 
@@ -35,15 +45,14 @@ export default {
 
 <script>
 import vFilters from "../search/v-filters";
-
 export default {
   components: {
     vFilters
   },
-
   data() {
     return {
-      isFiltersUsed: false,
+      loading: false,
+      visible: false,
       labelCol: { span: 4 },
       wrapperCol: { span: 14 },
       form: {
@@ -58,14 +67,19 @@ export default {
     };
   },
   methods: {
-    showFilters() {
-      this.isFiltersUsed = true;
+    showModal() {
+      this.visible = true;
     },
-
-    closeFilters() {
-      this.isFiltersUsed = false;
+    handleOk(e) {
+      this.loading = true;
+      setTimeout(() => {
+        this.visible = false;
+        this.loading = false;
+      }, 3000);
     },
-
+    handleCancel(e) {
+      this.visible = false;
+    },
     onSubmit() {
       console.log("submit!", this.form);
     }
@@ -81,18 +95,20 @@ export default {
   justify-content: center;
   height: 60vh;
 }
-
 .search__title {
   font-size: 100px;
   color: #3e2179;
 }
-
 .search__filter {
   margin-top: 30px;
   width: 100px;
 }
-
 .filters {
   z-index: 50;
+}
+
+.modal {
+  width: 1000px;
+  height: 1000px;
 }
 </style>
