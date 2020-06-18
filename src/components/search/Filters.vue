@@ -61,6 +61,10 @@
       <span class="content__label">Regular admission deadline:</span>
       <a-date-picker @change="onChange" />
     </div>
+    <div class="single__filter">
+      <span class="content__label">Regular admission deadline:</span>
+      <a-date-picker @change="onChange" />
+    </div>
   </div>
 </template>
 
@@ -102,7 +106,6 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 200px;
 }
 
 .single__filter {
