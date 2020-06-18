@@ -29,7 +29,10 @@ export default {
     };
   },
   methods: {
-    handleSearch() {
+    handleSearch(query) {
+      if (!query) {
+        return;
+      }
       this.isSearching = true;
     }
   }
