@@ -1,6 +1,8 @@
 <template>
   <header class="header">
-    <div class="header__left"></div>
+    <div class="header__left">
+      <a-tag color="#FAC738">BETA 0.1.0</a-tag>
+    </div>
     <div class="header__right">
       <div class="header__notifications-button">
         <a-badge count="5">
