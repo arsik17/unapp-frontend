@@ -12,11 +12,18 @@
       </div>
       <img src="@/assets/images/swinging_doodle.svg" alt="Swinging doodle" />
     </div>
+    <country-slider class="dashboard__country-slider" />
   </div>
 </template>
 
 <script>
-export default {};
+import CountrySlider from "@/components/dashboard/countrySlider/CountrySlider";
+
+export default {
+  components: {
+    "country-slider": CountrySlider
+  }
+};
 </script>
 
 <style scoped>
@@ -45,5 +52,9 @@ export default {};
 
 .card__paragraph {
   margin-bottom: 20px;
+}
+
+.dashboard__country-slider {
+  margin-top: 50px;
 }
 </style>
