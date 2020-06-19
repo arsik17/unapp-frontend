@@ -1,22 +1,64 @@
 <template>
-  <hooper class="country-slider" :itemsToShow="3">
+  <hooper class="country-slider" :itemsToShow="3" :trimWhiteSpace="true">
     <slide class="country-slider__slide-container">
-      <div class="country-slider__slide">Slide 1</div>
+      <div class="country-slider__slide">
+        <img
+          src="@/assets/images/countries/germany.jpg"
+          alt="Germany"
+          class="country-slider__image"
+        />
+        <h4 class="country-slider__country-name">Germany</h4>
+      </div>
     </slide>
     <slide class="country-slider__slide-container">
-      <div class="country-slider__slide">Slide 2</div>
+      <div class="country-slider__slide">
+        <img
+          src="@/assets/images/countries/germany.jpg"
+          alt="Germany"
+          class="country-slider__image"
+        />
+        <h4 class="country-slider__country-name">Germany</h4>
+      </div>
     </slide>
     <slide class="country-slider__slide-container">
-      <div class="country-slider__slide">Slide 3</div>
+      <div class="country-slider__slide">
+        <img
+          src="@/assets/images/countries/germany.jpg"
+          alt="Germany"
+          class="country-slider__image"
+        />
+        <h4 class="country-slider__country-name">Germany</h4>
+      </div>
     </slide>
     <slide class="country-slider__slide-container">
-      <div class="country-slider__slide">Slide 4</div>
+      <div class="country-slider__slide">
+        <img
+          src="@/assets/images/countries/germany.jpg"
+          alt="Germany"
+          class="country-slider__image"
+        />
+        <h4 class="country-slider__country-name">Germany</h4>
+      </div>
     </slide>
     <slide class="country-slider__slide-container">
-      <div class="country-slider__slide">Slide 5</div>
+      <div class="country-slider__slide">
+        <img
+          src="@/assets/images/countries/germany.jpg"
+          alt="Germany"
+          class="country-slider__image"
+        />
+        <h4 class="country-slider__country-name">Germany</h4>
+      </div>
     </slide>
     <slide class="country-slider__slide-container">
-      <div class="country-slider__slide">Slide 6</div>
+      <div class="country-slider__slide">
+        <img
+          src="@/assets/images/countries/germany.jpg"
+          alt="Germany"
+          class="country-slider__image"
+        />
+        <h4 class="country-slider__country-name">Germany</h4>
+      </div>
     </slide>
   </hooper>
 </template>
@@ -36,6 +78,7 @@ export default {
 <style scoped>
 .country-slider {
   width: 100%;
+  height: 250px;
   outline: none;
 }
 
@@ -49,11 +92,21 @@ export default {
 .country-slider__slide {
   height: 100%;
   width: 100%;
+  padding-bottom: 20px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  color: #ffffff;
-  background-color: #3e2179;
   border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.country-slider__image {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.country-slider__country-name {
+  font-size: 20px;
 }
 </style>
