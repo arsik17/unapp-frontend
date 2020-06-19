@@ -33,6 +33,7 @@ export default {
 .dashboard {
   width: 90%;
   margin: 20px auto 0;
+  padding-bottom: 50px;
 }
 
 .card {
@@ -60,5 +61,9 @@ export default {
 .dashboard__heading {
   margin-top: 50px;
   font-size: 26px;
+}
+
+.dashboard__country-slider {
+  height: 300px;
 }
 </style>

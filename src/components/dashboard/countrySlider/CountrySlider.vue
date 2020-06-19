@@ -78,7 +78,6 @@ export default {
 <style scoped>
 .country-slider {
   width: 100%;
-  height: 250px;
   outline: none;
 }
 
