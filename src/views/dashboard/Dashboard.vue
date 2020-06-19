@@ -4,9 +4,9 @@
       <div class="card__text">
         <h2 class="card__heading">Find University of your dream</h2>
         <p class="card__paragraph">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
-          provident molestias nam quos. Consectetur impedit eaque explicabo odit
-          sit ullam.
+          We provide a full-featured platform for management your university
+          application process. You can find the best university for yourself in
+          one click and save it in account. Let's rocket your future career!
         </p>
         <a-button @click="$router.push('/search')" type="primary" size="large"
           >Find something awesome</a-button
