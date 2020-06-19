@@ -13,20 +13,36 @@
         class="search__field"
         size="large"
         style="width: 50%"
-        placeholder="Find University"
+        placeholder="Find University by name"
         enter-button="Search"
         @search="handleSearch"
       />
     </div>
+    <universities-table
+      v-if="isUniversityListLoaded"
+      :universities="filteredUniversities"
+      class="search__universities"
+    />
   </div>
 </template>
 
 <script>
+import UniversitiesTable from "@/components/common/universitiesTable/UniversitiesTable";
+import { mapGetters, mapActions } from "vuex";
+
 export default {
+  components: {
+    "universities-table": UniversitiesTable
+  },
   data() {
     return {
-      isSearching: false
+      isSearching: false,
+      isUniversityListLoaded: false,
+      filteredUniversities: []
     };
+  },
+  computed: {
+    ...mapGetters(["universities"])
   },
   methods: {
     handleSearch(query) {
@@ -34,12 +50,32 @@ export default {
         return;
       }
       this.isSearching = true;
-    }
+      this.fetchUniversities().then(() => {
+        this.filteredUniversities = this.filterUniversities(
+          query,
+          this.universities
+        );
+        this.isUniversityListLoaded = true;
+      });
+    },
+    filterUniversities(searchQuery, universities) {
+      searchQuery = searchQuery.toLowerCase();
+      return universities.filter(university => {
+        let universityName = university.name.toLowerCase();
+        return universityName.indexOf(searchQuery) !== -1;
+      });
+    },
+    ...mapActions(["fetchUniversities"])
   }
 };
 </script>
 
 <style>
+.search {
+  width: 90%;
+  margin: auto;
+}
+
 .search__field-container {
   height: 60vh;
   display: flex;
@@ -50,7 +86,7 @@ export default {
 }
 
 .search__field-container.search__field-container_small {
-  height: 15vh;
+  height: 20vh;
 }
 
 .search__logo {
@@ -60,5 +96,9 @@ export default {
 
 .search__field {
   font-size: 20px;
+}
+
+.search__universities {
+  margin-top: 50px;
 }
 </style>
