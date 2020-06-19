@@ -8,7 +8,9 @@
           provident molestias nam quos. Consectetur impedit eaque explicabo odit
           sit ullam.
         </p>
-        <a-button type="primary" size="large">Find something awesome</a-button>
+        <a-button @click="$router.push('/search')" type="primary" size="large"
+          >Find something awesome</a-button
+        >
       </div>
       <img src="@/assets/images/swinging_doodle.svg" alt="Swinging doodle" />
     </div>
