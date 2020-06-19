@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="dashboard">
     <div class="card">
       <div class="card__text">
         <h2 class="card__heading">Find University of your dream</h2>
@@ -20,7 +20,7 @@ export default {};
 </script>
 
 <style scoped>
-.home {
+.dashboard {
   width: 90%;
   margin: 20px auto 0;
 }

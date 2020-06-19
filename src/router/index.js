@@ -68,6 +68,9 @@ const routes = [
     path: "/auth",
     name: "auth",
     component: EmptyLayout,
+    meta: {
+      onlyNotAuth: true
+    },
     children: [
       {
         path: "login",
@@ -94,7 +97,7 @@ router.beforeEach((to, from, next) => {
     store.getters.isLoggedIn &&
     to.matched.some(record => record.meta.onlyNotAuth)
   ) {
-    next("/");
+    next("/dashboard");
   } else if (to.matched.some(record => record.meta.requiresAuth)) {
     if (store.getters.isLoggedIn) {
       next();
