@@ -15,6 +15,7 @@ import Universities from "@/views/universities/Universities";
 import University from "@/views/university/University";
 import Profile from "@/views/profile/Profile";
 import Search from "@/views/search/Search";
+import SavedUniversities from "@/views/savedUniversities/SavedUniversities";
 
 Vue.use(VueRouter);
 
@@ -45,6 +46,11 @@ const routes = [
         path: "universities/:id",
         name: "university",
         component: University
+      },
+      {
+        path: "saved-universities",
+        name: "saved-universities",
+        component: SavedUniversities
       },
       {
         path: "search",

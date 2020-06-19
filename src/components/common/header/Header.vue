@@ -11,14 +11,14 @@
         <a-avatar icon="user" size="large" />
         <a-menu slot="overlay">
           <a-menu-item>
-            <a href="javascript:;">Profile</a>
+            <router-link to="/profile">Profile</router-link>
           </a-menu-item>
           <a-menu-item>
-            <a href="javascript:;">Settings</a>
+            <router-link to="#">Settings</router-link>
           </a-menu-item>
           <a-menu-divider />
           <a-menu-item @click="handleLogout">
-            <a href="javascript:;">Log out</a>
+            <span>Log out</span>
           </a-menu-item>
         </a-menu>
       </a-dropdown>
