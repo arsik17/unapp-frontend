@@ -16,9 +16,9 @@
         <a-icon type="bank" theme="filled" class="nav__icon" />
         <span class="nav__link-text">Universities</span>
       </router-link>
-      <router-link to="/profile" class="nav__link">
-        <a-icon type="idcard" theme="filled" class="nav__icon" />
-        <span class="nav__link-text">Profile</span>
+      <router-link to="/saved-universities" class="nav__link">
+        <a-icon type="heart" theme="filled" class="nav__icon" />
+        <span class="nav__link-text">Saved</span>
       </router-link>
       <router-link to="/search" class="nav__link">
         <a-icon type="search" theme="outlined" class="nav__icon" />
