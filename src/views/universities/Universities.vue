@@ -1,5 +1,6 @@
 <template>
   <div class="universities">
+    <h1 class="universities__heading">All Universities</h1>
     <universities-table :universities="universities" />
   </div>
 </template>
@@ -28,5 +29,9 @@ export default {
 .universities {
   width: 90%;
   margin: auto;
+}
+
+.universities__heading {
+  margin: 0 0 30px;
 }
 </style>

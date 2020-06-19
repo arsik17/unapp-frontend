@@ -42,10 +42,6 @@ export default {
   width: 20vw;
 }
 
-.default-layout__header {
-  margin-bottom: 30px;
-}
-
 .default-layout__content {
   width: 80%;
   box-sizing: border-box;

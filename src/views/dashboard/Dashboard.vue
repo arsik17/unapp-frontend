@@ -22,7 +22,7 @@ export default {};
 <style scoped>
 .home {
   width: 90%;
-  margin: auto;
+  margin: 20px auto 0;
 }
 
 .card {

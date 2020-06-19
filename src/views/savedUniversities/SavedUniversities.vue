@@ -1,5 +1,6 @@
 <template>
   <div class="saved-universities">
+    <h1 class="saved-universities__heading">Saved Universities</h1>
     <a-row
       type="flex"
       justify="space-between"
@@ -58,6 +59,10 @@ export default {
 .saved-universities {
   width: 90%;
   margin: auto;
+}
+
+.saved-universities__heading {
+  margin: 0 0 30px;
 }
 
 .saved-universities__controls {

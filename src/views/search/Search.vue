@@ -73,7 +73,7 @@ export default {
 <style>
 .search {
   width: 90%;
-  margin: auto;
+  margin: 20px auto 0;
 }
 
 .search__field-container {
