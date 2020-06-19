@@ -14,6 +14,7 @@
       </div>
       <img src="@/assets/images/swinging_doodle.svg" alt="Swinging doodle" />
     </div>
+    <h2 class="dashboard__heading">Choose country</h2>
     <country-slider class="dashboard__country-slider" />
   </div>
 </template>
@@ -56,7 +57,8 @@ export default {
   margin-bottom: 20px;
 }
 
-.dashboard__country-slider {
+.dashboard__heading {
   margin-top: 50px;
+  font-size: 26px;
 }
 </style>
