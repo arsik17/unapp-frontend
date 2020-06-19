@@ -1,11 +1,13 @@
 <template>
   <nav class="nav">
     <h2 class="nav__logo logo">
-      <img
-        class="logo__image"
-        src="@/assets/images/logo_light.svg"
-        alt="Logo"
-      />
+      <router-link to="/">
+        <img
+          class="logo__image"
+          src="@/assets/images/logo_light.svg"
+          alt="Logo"
+        />
+      </router-link>
     </h2>
     <div class="nav__links">
       <router-link to="/dashboard" exact class="nav__link">
