@@ -17,6 +17,9 @@ import Profile from "@/views/profile/Profile";
 import Search from "@/views/search/Search";
 import SavedUniversities from "@/views/savedUniversities/SavedUniversities";
 
+import SettingsLayout from "@/views/settings/Layout";
+import UserSettings from "@/views/settings/User";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -61,6 +64,16 @@ const routes = [
         path: "profile",
         name: "profile",
         component: Profile
+      },
+      {
+        path: "settings",
+        component: SettingsLayout,
+        children: [
+          {
+            path: "",
+            component: UserSettings
+          }
+        ]
       }
     ]
   },

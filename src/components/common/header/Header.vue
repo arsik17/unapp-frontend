@@ -16,7 +16,7 @@
             <router-link to="/profile">Profile</router-link>
           </a-menu-item>
           <a-menu-item>
-            <router-link to="#">Settings</router-link>
+            <router-link to="/settings">Settings</router-link>
           </a-menu-item>
           <a-menu-divider />
           <a-menu-item @click="handleLogout">
