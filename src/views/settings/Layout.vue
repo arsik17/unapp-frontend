@@ -18,18 +18,17 @@ export default {
 <style scoped>
 .settings {
   width: 90%;
-  margin: 30px auto 0;
+  margin: 30px auto 50px;
   display: flex;
-  justify-content: space-between;
 }
 
 .settings__side-nav {
-  width: 30%;
+  width: 25%;
   box-sizing: border-box;
 }
 
 .settings__content {
-  width: 70%;
+  width: 75%;
   box-sizing: border-box;
 }
 </style>
