@@ -20,22 +20,19 @@ export default {
 
 <style>
 .country-card {
-  width: 365px;
-  height: 262px;
-  display: table;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 10px;
-  background-image: url("/assets/images/countries/Kazakhstan.png");
   background-size: cover;
 }
 
 .country-card__title {
-  display: table-cell;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 40px;
-  color: white;
+  font-size: 25px;
+  color: #ffffff;
   text-align: center;
-  vertical-align: middle;
+  text-transform: uppercase;
 }
 </style>
