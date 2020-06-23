@@ -35,6 +35,13 @@ export default {
       }).then(res =>
         commit("setSavedUniversities", res.data.savedUniversities)
       );
+    },
+    updateCurrentUser({ commit }, { userId, userData }) {
+      request({
+        url: "users/" + userId,
+        method: "PUT",
+        data: userData
+      }).then(res => commit("setCurrentUser", res.data));
     }
   },
   mutations: {

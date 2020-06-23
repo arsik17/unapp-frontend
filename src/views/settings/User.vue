@@ -22,7 +22,7 @@
         type="date"
         class="user-settings__input"
         v-model="dateOfBirth"
-        :disabled="loading"
+        :disabled="true"
       />
     </a-form-model-item>
     <a-form-model-item label="Phone number">
@@ -49,12 +49,14 @@
     <a-form-model-item label="Make my contacts visible for users of UnApp">
       <a-switch v-model="contactsVisible" :disabled="loading" />
     </a-form-model-item>
-    <a-button type="primary" size="large">Save</a-button>
+    <a-button @click="handleFormSubmit" type="primary" size="large"
+      >Save</a-button
+    >
   </a-form-model>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   data() {
@@ -69,6 +71,7 @@ export default {
       contactsVisible: false
     };
   },
+  computed: mapGetters(["currentUser"]),
   methods: {
     setInitialValues(data) {
       this.firstName = data.firstName;
@@ -78,7 +81,27 @@ export default {
       this.city = data.city;
       this.contactsVisible = data.contactsVisible;
     },
-    ...mapActions(["fetchCurrentUser"])
+    handleFormSubmit() {
+      const {
+        firstName,
+        lastName,
+        phoneNumber,
+        country,
+        city,
+        contactsVisible
+      } = this;
+      const userData = {
+        firstName,
+        lastName,
+        phoneNumber,
+        country,
+        city,
+        contactsVisible
+      };
+      const userId = this.currentUser._id;
+      this.updateCurrentUser({ userId, userData });
+    },
+    ...mapActions(["fetchCurrentUser", "updateCurrentUser"])
   },
   beforeMount() {
     this.loading = true;
