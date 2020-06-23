@@ -1,5 +1,6 @@
 <template>
   <div class="dashboard">
+    <action-card class="dashboard__action-card" />
     <section class="dashboard__section">
       <h1 class="dashboard__heading">Study wherever you want</h1>
       <country-grid class="dashboard__country-grid" />
@@ -12,11 +13,13 @@
 </template>
 
 <script>
+import ActionCard from "@/components/dashboard/actionCard/ActionCard";
 import CountrySlider from "@/components/dashboard/countrySlider/CountrySlider";
 import CountryGrid from "@/components/dashboard/countryGrid/CountryGrid";
 
 export default {
   components: {
+    "action-card": ActionCard,
     "country-slider": CountrySlider,
     "country-grid": CountryGrid
   }
@@ -26,8 +29,12 @@ export default {
 <style scoped>
 .dashboard {
   width: 80%;
-  margin: 20px auto 0;
+  margin: 40px auto 0;
   padding-bottom: 50px;
+}
+
+.dashboard__action-card {
+  margin-bottom: 30px;
 }
 
 .dashboard__section {
