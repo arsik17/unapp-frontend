@@ -26,12 +26,14 @@
         :disabled="loading"
       />
     </a-form-model-item>
-    <a-button type="primary" size="large">Save</a-button>
+    <a-button @click="handleFormSubmit" type="primary" size="large"
+      >Save</a-button
+    >
   </a-form-model>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   data() {
@@ -42,13 +44,24 @@ export default {
       ieltsScore: null
     };
   },
+  computed: mapGetters(["currentUser"]),
   methods: {
     setInitialValues(data) {
       this.satScore = data.satScore;
       this.satSubjectScore = data.satSubjectScore;
       this.ieltsScore = data.ieltsScore;
     },
-    ...mapActions(["fetchCurrentUser"])
+    handleFormSubmit() {
+      const { satScore, satSubjectScore, ieltsScore } = this;
+      const userData = {
+        satScore,
+        satSubjectScore,
+        ieltsScore
+      };
+      const userId = this.currentUser._id;
+      this.updateCurrentUser({ userId, userData });
+    },
+    ...mapActions(["fetchCurrentUser", "updateCurrentUser"])
   },
   beforeMount() {
     this.loading = true;
