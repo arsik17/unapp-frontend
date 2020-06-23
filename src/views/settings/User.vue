@@ -1,53 +1,55 @@
 <template>
-  <a-form-model class="user-settings">
+  <a-form-model class="user-settings" :model="form" :rules="rules" ref="form">
     <h1 class="user-settings__heading">User info</h1>
-    <a-form-model-item label="First name">
+    <a-form-model-item label="First name" prop="firstName">
       <a-input
         placeholder="First name"
         class="user-settings__input"
-        v-model="firstName"
+        v-model="form.firstName"
         :disabled="loading"
+        :maxLength="60"
       />
     </a-form-model-item>
-    <a-form-model-item label="Last name">
+    <a-form-model-item label="Last name" prop="lastName">
       <a-input
         placeholder="Last name"
         class="user-settings__input"
-        v-model="lastName"
+        v-model="form.lastName"
         :disabled="loading"
+        :maxLength="60"
       />
     </a-form-model-item>
     <a-form-model-item label="Date of birth">
       <a-input
         type="date"
         class="user-settings__input"
-        v-model="dateOfBirth"
+        v-model="form.dateOfBirth"
         :disabled="true"
       />
     </a-form-model-item>
     <a-form-model-item label="Phone number">
       <a-input
         class="user-settings__input"
-        v-model="phoneNumber"
+        v-model="form.phoneNumber"
         :disabled="loading"
       />
     </a-form-model-item>
     <a-form-model-item label="Country">
       <a-input
         class="user-settings__input"
-        v-model="country"
+        v-model="form.country"
         :disabled="loading"
       />
     </a-form-model-item>
     <a-form-model-item label="City">
       <a-input
         class="user-settings__input"
-        v-model="city"
+        v-model="form.city"
         :disabled="loading"
       />
     </a-form-model-item>
     <a-form-model-item label="Make my contacts visible for users of UnApp">
-      <a-switch v-model="contactsVisible" :disabled="loading" />
+      <a-switch v-model="form.contactsVisible" :disabled="loading" />
     </a-form-model-item>
     <a-button @click="handleFormSubmit" type="primary" size="large"
       >Save</a-button
@@ -62,44 +64,49 @@ export default {
   data() {
     return {
       loading: false,
-      firstName: "",
-      lastName: "",
-      dateOfBirth: null,
-      phoneNumber: "",
-      country: "",
-      city: "",
-      contactsVisible: false
+      form: {
+        firstName: "",
+        lastName: "",
+        dateOfBirth: null,
+        phoneNumber: "",
+        country: "",
+        city: "",
+        contactsVisible: false
+      },
+      rules: {
+        firstName: [
+          {
+            required: true,
+            message: "Please enter your first name",
+            trigger: "change"
+          }
+        ],
+        lastName: [
+          {
+            required: true,
+            message: "Please enter your last name",
+            trigger: "change"
+          }
+        ]
+      }
     };
   },
   computed: mapGetters(["currentUser"]),
   methods: {
     setInitialValues(data) {
-      this.firstName = data.firstName;
-      this.lastName = data.lastName;
-      this.phoneNumber = data.phoneNumber;
-      this.country = data.country;
-      this.city = data.city;
-      this.contactsVisible = data.contactsVisible;
+      this.form = data;
     },
     handleFormSubmit() {
-      const {
-        firstName,
-        lastName,
-        phoneNumber,
-        country,
-        city,
-        contactsVisible
-      } = this;
-      const userData = {
-        firstName,
-        lastName,
-        phoneNumber,
-        country,
-        city,
-        contactsVisible
-      };
-      const userId = this.currentUser._id;
-      this.updateCurrentUser({ userId, userData });
+      if (this.isFormValid()) {
+        const userData = this.form;
+        const userId = this.currentUser._id;
+        this.updateCurrentUser({ userId, userData });
+      }
+    },
+    isFormValid() {
+      let isValid = false;
+      this.$refs.form.validate(valid => (isValid = valid));
+      return isValid;
     },
     ...mapActions(["fetchCurrentUser", "updateCurrentUser"])
   },
