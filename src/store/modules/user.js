@@ -7,17 +7,22 @@ export default {
   },
   actions: {
     fetchCurrentUser({ commit }) {
-      request({
-        url: "users/me",
-        method: "GET"
-      }).then(res => {
-        commit("setCurrentUser", res.data);
-        commit(
-          "setSavedUniversities",
-          res.data.savedUniversities.map(universityId => ({
-            _id: universityId
-          }))
-        );
+      return new Promise((resolve, reject) => {
+        request({
+          url: "users/me",
+          method: "GET"
+        })
+          .then(res => {
+            commit("setCurrentUser", res.data);
+            commit(
+              "setSavedUniversities",
+              res.data.savedUniversities.map(universityId => ({
+                _id: universityId
+              }))
+            );
+            resolve(res.data);
+          })
+          .catch(err => reject(err));
       });
     },
     updateSavedUniversities({ commit }, { userId, savedUniversities }) {
@@ -30,6 +35,13 @@ export default {
       }).then(res =>
         commit("setSavedUniversities", res.data.savedUniversities)
       );
+    },
+    updateCurrentUser({ commit }, { userId, userData }) {
+      request({
+        url: "users/" + userId,
+        method: "PUT",
+        data: userData
+      }).then(res => commit("setCurrentUser", res.data));
     }
   },
   mutations: {
