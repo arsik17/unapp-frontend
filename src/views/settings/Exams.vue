@@ -6,20 +6,59 @@
       <a-input
         placeholder="SAT Reasoning score"
         class="exams-settings__input"
+        v-model="satScore"
+        :disabled="loading"
       />
     </a-form-model-item>
     <a-form-model-item label="SAT Subject score">
-      <a-input placeholder="SAT Subject score" class="exams-settings__input" />
+      <a-input
+        placeholder="SAT Subject score"
+        class="exams-settings__input"
+        v-model="satSubjectScore"
+        :disabled="loading"
+      />
     </a-form-model-item>
     <a-form-model-item label="IELTS score">
-      <a-input placeholder="IELTS Score" class="exams-settings__input" />
+      <a-input
+        placeholder="IELTS Score"
+        class="exams-settings__input"
+        v-model="ieltsScore"
+        :disabled="loading"
+      />
     </a-form-model-item>
     <a-button type="primary" size="large">Save</a-button>
   </a-form-model>
 </template>
 
 <script>
-export default {};
+import { mapActions } from "vuex";
+
+export default {
+  data() {
+    return {
+      loading: false,
+      satScore: null,
+      satSubjectScore: null,
+      ieltsScore: null
+    };
+  },
+  methods: {
+    setInitialValues(data) {
+      this.satScore = data.satScore;
+      this.satSubjectScore = data.satSubjectScore;
+      this.ieltsScore = data.ieltsScore;
+    },
+    ...mapActions(["fetchCurrentUser"])
+  },
+  beforeMount() {
+    this.loading = true;
+    this.fetchCurrentUser().then(userData => {
+      console.log(userData);
+      this.setInitialValues(userData);
+      this.loading = false;
+    });
+  }
+};
 </script>
 
 <style scoped>
