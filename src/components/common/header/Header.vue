@@ -1,7 +1,15 @@
 <template>
   <header class="header">
     <div class="header__left">
-      <a-tag color="#FAC738">BETA 0.1.0</a-tag>
+      <a-popover placement="bottom" title="We are in a BETA stage">
+        <template slot="content">
+          <p class="header__stage-popover-text">
+            Do not be upset if something does not work properly. We are already
+            fixing it!
+          </p>
+        </template>
+        <a-tag color="#FAC738">BETA 0.1.0</a-tag>
+      </a-popover>
     </div>
     <div class="header__right">
       <div class="header__notifications-button">
@@ -72,5 +80,9 @@ export default {
 
 .header__notifications-icon {
   font-size: 24px;
+}
+
+.header__stage-popover-text {
+  max-width: 300px;
 }
 </style>
