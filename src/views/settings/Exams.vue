@@ -3,27 +3,34 @@
     <h1 class="exams-settings__heading">My exams</h1>
     <p>Exams data is used to provide valid university recommedation</p>
     <a-form-model-item label="SAT Reasoning score">
-      <a-input
+      <a-input-number
         placeholder="SAT Reasoning score"
         class="exams-settings__input"
         v-model="satScore"
         :disabled="loading"
+        :min="0"
+        :max="1600"
       />
     </a-form-model-item>
     <a-form-model-item label="SAT Subject score">
-      <a-input
+      <a-input-number
         placeholder="SAT Subject score"
         class="exams-settings__input"
         v-model="satSubjectScore"
         :disabled="loading"
+        :min="0"
+        :max="1600"
       />
     </a-form-model-item>
     <a-form-model-item label="IELTS score">
-      <a-input
+      <a-input-number
         placeholder="IELTS Score"
         class="exams-settings__input"
         v-model="ieltsScore"
         :disabled="loading"
+        :min="0"
+        :max="9"
+        :step="0.5"
       />
     </a-form-model-item>
     <a-button @click="handleFormSubmit" type="primary" size="large"
