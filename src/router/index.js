@@ -19,6 +19,7 @@ import SavedUniversities from "@/views/savedUniversities/SavedUniversities";
 
 import SettingsLayout from "@/views/settings/Layout";
 import UserSettings from "@/views/settings/User";
+import ExamsSettings from "@/views/settings/Exams";
 
 Vue.use(VueRouter);
 
@@ -72,6 +73,10 @@ const routes = [
           {
             path: "",
             component: UserSettings
+          },
+          {
+            path: "exams",
+            component: ExamsSettings
           }
         ]
       }
