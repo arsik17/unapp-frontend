@@ -2,32 +2,92 @@
   <a-form-model class="user-settings">
     <h1 class="user-settings__heading">User info</h1>
     <a-form-model-item label="First name">
-      <a-input placeholder="First name" class="user-settings__input" />
+      <a-input
+        placeholder="First name"
+        class="user-settings__input"
+        v-model="firstName"
+        :disabled="loading"
+      />
     </a-form-model-item>
     <a-form-model-item label="Last name">
-      <a-input placeholder="Last name" class="user-settings__input" />
+      <a-input
+        placeholder="Last name"
+        class="user-settings__input"
+        v-model="lastName"
+        :disabled="loading"
+      />
     </a-form-model-item>
     <a-form-model-item label="Date of birth">
-      <a-input type="date" class="user-settings__input" />
+      <a-input
+        type="date"
+        class="user-settings__input"
+        v-model="dateOfBirth"
+        :disabled="loading"
+      />
     </a-form-model-item>
     <a-form-model-item label="Phone number">
-      <a-input class="user-settings__input" />
+      <a-input
+        class="user-settings__input"
+        v-model="phoneNumber"
+        :disabled="loading"
+      />
     </a-form-model-item>
     <a-form-model-item label="Country">
-      <a-select class="user-settings__input"></a-select>
+      <a-input
+        class="user-settings__input"
+        v-model="country"
+        :disabled="loading"
+      />
     </a-form-model-item>
     <a-form-model-item label="City">
-      <a-select class="user-settings__input"></a-select>
+      <a-input
+        class="user-settings__input"
+        v-model="city"
+        :disabled="loading"
+      />
     </a-form-model-item>
-    <a-form-model-item label="Make my info private">
-      <a-switch />
+    <a-form-model-item label="Make my contacts visible for users of UnApp">
+      <a-switch v-model="contactsVisible" :disabled="loading" />
     </a-form-model-item>
     <a-button type="primary" size="large">Save</a-button>
   </a-form-model>
 </template>
 
 <script>
-export default {};
+import { mapActions } from "vuex";
+
+export default {
+  data() {
+    return {
+      loading: false,
+      firstName: "",
+      lastName: "",
+      dateOfBirth: null,
+      phoneNumber: "",
+      country: "",
+      city: "",
+      contactsVisible: false
+    };
+  },
+  methods: {
+    setInitialValues(data) {
+      this.firstName = data.firstName;
+      this.lastName = data.lastName;
+      this.phoneNumber = data.phoneNumber;
+      this.country = data.country;
+      this.city = data.city;
+      this.contactsVisible = data.contactsVisible;
+    },
+    ...mapActions(["fetchCurrentUser"])
+  },
+  beforeMount() {
+    this.loading = true;
+    this.fetchCurrentUser().then(userData => {
+      this.setInitialValues(userData);
+      this.loading = false;
+    });
+  }
+};
 </script>
 
 <style scoped>
