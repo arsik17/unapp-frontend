@@ -20,6 +20,7 @@ import SavedUniversities from "@/views/savedUniversities/SavedUniversities";
 import SettingsLayout from "@/views/settings/Layout";
 import UserSettings from "@/views/settings/User";
 import ExamsSettings from "@/views/settings/Exams";
+import NotificationsSettings from "@/views/settings/Notifications";
 
 Vue.use(VueRouter);
 
@@ -77,6 +78,10 @@ const routes = [
           {
             path: "exams",
             component: ExamsSettings
+          },
+          {
+            path: "notifications",
+            component: NotificationsSettings
           }
         ]
       }
