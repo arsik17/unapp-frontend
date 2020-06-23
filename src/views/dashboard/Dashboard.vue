@@ -23,7 +23,7 @@
 
 <script>
 import CountrySlider from "@/components/dashboard/countrySlider/CountrySlider";
-import CountryGrid from "@/components/dashboard/countryGrid/countryGrid";
+import CountryGrid from "@/components/dashboard/countryGrid/CountryGrid";
 
 export default {
   components: {

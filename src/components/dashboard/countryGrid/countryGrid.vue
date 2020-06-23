@@ -71,7 +71,7 @@
 </template>
 
 <script>
-import CountryCard from "@/components/dashboard/countryCard/countryCard";
+import CountryCard from "@/components/dashboard/countryCard/CountryCard";
 import kazakhstanImage from "@/assets/images/countries/Kazakhstan.png";
 import russiaImage from "@/assets/images/countries/Russia.png";
 import usaImage from "@/assets/images/countries/Usa.png";
