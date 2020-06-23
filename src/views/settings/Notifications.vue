@@ -2,7 +2,12 @@
   <a-form-model class="notifications-settings">
     <h1 class="notifications-settings__heading">Notifications</h1>
     <a-form-model-item label="Send me university suggestions every week">
-      <a-switch />
+      <a-popover>
+        <template slot="content">
+          <p>We will implement this soon</p>
+        </template>
+        <a-switch disabled />
+      </a-popover>
     </a-form-model-item>
     <a-button type="primary" size="large">Save</a-button>
   </a-form-model>
