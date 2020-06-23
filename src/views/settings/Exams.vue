@@ -53,7 +53,6 @@ export default {
   beforeMount() {
     this.loading = true;
     this.fetchCurrentUser().then(userData => {
-      console.log(userData);
       this.setInitialValues(userData);
       this.loading = false;
     });
