@@ -13,7 +13,7 @@
         class="university__contacts-item"
       >
         <a-icon type="mail" theme="filled" class="university__contacts-icon" />
-        <span class="university__contacts__text">
+        <span class="university__contacts-text">
           {{ university.officialEmail }}
         </span>
       </a>
@@ -24,7 +24,7 @@
         class="university__contacts-item"
       >
         <a-icon type="build" theme="filled" class="university__contacts-icon" />
-        <span class="university__contacts__text">
+        <span class="university__contacts-text">
           {{ university.officialSite }}
         </span>
       </a>
