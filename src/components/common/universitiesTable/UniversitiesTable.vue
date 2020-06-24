@@ -9,6 +9,10 @@
         {{ record.name }}
       </router-link>
     </span>
+    <span slot="country" slot-scope="country">
+      <span v-if="country">{{ country.name }}</span>
+      <a-tag v-else color="red">No data</a-tag>
+    </span>
     <span slot="scholarship" slot-scope="scholarship">
       <a-tag v-if="scholarship" :color="getScholarshipColor(scholarship)">
         {{ scholarship.toUpperCase() }}
@@ -48,7 +52,8 @@ const columns = [
   {
     title: "Country",
     dataIndex: "country",
-    key: "country"
+    key: "country",
+    scopedSlots: { customRender: "country" }
   },
   {
     title: "Scholarship",
