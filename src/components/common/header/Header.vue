@@ -13,9 +13,16 @@
     </div>
     <div class="header__right">
       <div class="header__notifications-button">
-        <a-badge count="5">
-          <a-icon type="bell" class="header__notifications-icon" />
-        </a-badge>
+        <a-dropdown>
+          <a-badge count="0">
+            <a-icon type="bell" class="header__notifications-icon" />
+          </a-badge>
+          <a-menu slot="overlay">
+            <a-menu-item>
+              <span>Notification are not implemented yet</span>
+            </a-menu-item>
+          </a-menu>
+        </a-dropdown>
       </div>
       <a-dropdown>
         <a-avatar icon="user" size="large" />
