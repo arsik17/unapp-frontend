@@ -1,7 +1,7 @@
 <template>
   <div class="university" :class="{ visible: universityLoaded }">
     <h1 class="university__title">{{ university.name }}</h1>
-    <a-row type="flex" justify="space-between">
+    <a-row v-if="university.description" type="flex" justify="space-between">
       <a-col :span="14">
         <p class="university__description">{{ university.description }}</p>
       </a-col>
@@ -181,7 +181,7 @@ export default {
 .university {
   width: 90%;
   display: none;
-  margin: auto;
+  margin: 30px auto 0;
   padding-bottom: 50px;
 }
 
@@ -191,7 +191,7 @@ export default {
 
 .university__title {
   margin-bottom: 40px;
-  font-size: 26px;
+  font-size: 30px;
 }
 
 .university__description {
@@ -226,7 +226,7 @@ export default {
 
 .university__faculty-name {
   margin-bottom: 20px;
-  font-size: 26px;
+  font-size: 24px;
 }
 
 .university__grid-row {
