@@ -6,6 +6,7 @@ Vue.use(Vuex);
 import auth from "./modules/auth";
 import universities from "./modules/universities";
 import user from "./modules/user";
+import specializations from "./modules/specializations";
 
 export default new Vuex.Store({
   state: {},
@@ -14,6 +15,7 @@ export default new Vuex.Store({
   modules: {
     auth,
     user,
-    universities
+    universities,
+    specializations
   }
 });

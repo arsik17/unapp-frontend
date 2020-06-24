@@ -116,6 +116,7 @@
 import request from "@/request/request";
 import Statistics from "@/components/university/statistics/Statistics";
 import moment from "moment";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   components: {
@@ -129,7 +130,8 @@ export default {
   computed: {
     universityLoaded() {
       return Boolean(this.university.name);
-    }
+    },
+    ...mapGetters(["specializations"])
   },
   methods: {
     getPercents(number) {
@@ -143,7 +145,8 @@ export default {
     },
     getParsedDate(date) {
       return moment(date).format("DD.MM.YYYY");
-    }
+    },
+    ...mapActions(["fetchSpecializations"])
   },
   beforeMount() {
     const currentUniversityId = this.$route.params.id;
@@ -154,6 +157,7 @@ export default {
       console.log(res.data);
       this.university = res.data;
     });
+    this.fetchSpecializations();
   }
 };
 </script>
