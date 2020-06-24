@@ -5,12 +5,15 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
+  computed: mapGetters(["isLoggedIn"]),
   methods: mapActions(["fetchCurrentUser"]),
   beforeMount() {
-    this.fetchCurrentUser();
+    if (this.isLoggedIn) {
+      this.fetchCurrentUser();
+    }
   }
 };
 </script>
