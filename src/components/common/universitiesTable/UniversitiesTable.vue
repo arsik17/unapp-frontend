@@ -10,9 +10,14 @@
       </router-link>
     </span>
     <span slot="scholarship" slot-scope="scholarship">
-      <a-tag :color="getScholarshipColor(scholarship)">
+      <a-tag v-if="scholarship" :color="getScholarshipColor(scholarship)">
         {{ scholarship.toUpperCase() }}
       </a-tag>
+      <a-tag v-else color="red">No data</a-tag>
+    </span>
+    <span slot="bachelorCost" slot-scope="bachelorCost">
+      <span v-if="bachelorCost">{{ bachelorCost }}</span>
+      <a-tag v-else color="red">No data</a-tag>
     </span>
     <span slot="save" slot-scope="record">
       <a-button v-if="record.saved" @click="removeUniversity(record.id)"
@@ -54,7 +59,8 @@ const columns = [
   {
     title: "Cost",
     dataIndex: "bachelorCost",
-    key: "cost"
+    key: "bachelorCost",
+    scopedSlots: { customRender: "bachelorCost" }
   },
   {
     key: "save",
