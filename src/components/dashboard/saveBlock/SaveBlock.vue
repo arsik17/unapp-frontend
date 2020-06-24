@@ -60,8 +60,9 @@ export default {};
 .save-block__button {
   font-size: 21px;
   border-radius: 10px;
+  border: black;
   width: 230px;
-  height: 55.08px;
+  height: 55px;
   background-color: #fb5357;
   color: #ffffff;
   font-weight: 600;
