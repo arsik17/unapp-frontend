@@ -13,9 +13,9 @@
         class="university__contacts-item"
       >
         <a-icon type="mail" theme="filled" class="university__contacts-icon" />
-        <span class="university__contacts__text">{{
-          university.officialEmail
-        }}</span>
+        <span class="university__contacts__text">
+          {{ university.officialEmail }}
+        </span>
       </a>
       <a
         v-if="university.officialSite"
@@ -24,9 +24,9 @@
         class="university__contacts-item"
       >
         <a-icon type="build" theme="filled" class="university__contacts-icon" />
-        <span class="university__contacts__text">{{
-          university.officialSite
-        }}</span>
+        <span class="university__contacts__text">
+          {{ university.officialSite }}
+        </span>
       </a>
     </div>
     <div
@@ -101,12 +101,22 @@
         v-if="faculty.additionalExams"
         class="university__additional-requirements"
       >
-        <h4 class="university__additional-requirements-title">
-          Additional requirements
-        </h4>
+        <h4 class="university__section-heading">Additional requirements</h4>
         <p class="university__additional-requirements-list">
           {{ faculty.additionalExams }}
         </p>
+      </div>
+      <div
+        v-if="getSpecializationsOfFaculty(faculty.id).length > 0"
+        class="university__specializations"
+      >
+        <h4 class="university__section-heading">Available specialization</h4>
+        <a-tag
+          v-for="specialization in getSpecializationsOfFaculty(faculty.id)"
+          :key="specialization.id"
+          color="green"
+          >{{ specialization.name }}</a-tag
+        >
       </div>
     </div>
   </div>
@@ -145,6 +155,11 @@ export default {
     },
     getParsedDate(date) {
       return moment(date).format("DD.MM.YYYY");
+    },
+    getSpecializationsOfFaculty(facultyId) {
+      return this.specializations.filter(specialization =>
+        specialization.faculties.find(faculty => faculty.id === facultyId)
+      );
     },
     ...mapActions(["fetchSpecializations"])
   },
@@ -210,6 +225,7 @@ export default {
 }
 
 .university__faculty-name {
+  margin-bottom: 20px;
   font-size: 26px;
 }
 
@@ -217,11 +233,12 @@ export default {
   margin-bottom: 40px;
 }
 
-.university__additional-requirements {
-  margin-top: 50px;
+.university__section-heading {
+  margin-top: 30px;
+  font-size: 18px;
 }
 
-.university__additional-requirements-title {
-  font-size: 18px;
+.university__additional-requirements {
+  margin-top: 50px;
 }
 </style>

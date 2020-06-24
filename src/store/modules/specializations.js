@@ -12,6 +12,7 @@ export default {
           method: "GET"
         })
           .then(res => {
+            console.log(res.data);
             const specializations = res.data;
             commit("setSpecializations", specializations);
             resolve(res);
