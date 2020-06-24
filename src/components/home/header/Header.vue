@@ -7,7 +7,15 @@
         class="header__logo"
       />
     </router-link>
-    <div class="header__button-container">
+    <router-link
+      v-if="isLoggedIn"
+      to="/dashboard"
+      class="header__avatar-container"
+    >
+      <span>{{ currentUser.firstName }}</span>
+      <a-avatar icon="user" size="large" class="header__avatar" />
+    </router-link>
+    <div v-else class="header__button-container">
       <router-link to="/auth/register" class="header__sign-up"
         >Sign Up</router-link
       >
@@ -21,6 +29,14 @@
   </header>
 </template>
 
+<script>
+import { mapGetters } from "vuex";
+
+export default {
+  computed: mapGetters(["isLoggedIn", "currentUser"])
+};
+</script>
+
 <style scoped>
 .header {
   height: 100px;
@@ -32,6 +48,15 @@
 
 .header__logo {
   height: 41px;
+}
+
+.header__avatar-container {
+  display: flex;
+  align-items: center;
+}
+
+.header__avatar {
+  margin-left: 15px;
 }
 
 .header__sign-up {
