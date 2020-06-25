@@ -1,6 +1,12 @@
 <template>
   <div class="university" :class="{ visible: universityLoaded }">
-    <h1 class="university__title">{{ university.name }}</h1>
+    <h1 class="university__title">
+      {{ university.name }}
+      <scholarship-tag
+        v-if="university.scholarship"
+        :scholarship="university.scholarship"
+      />
+    </h1>
     <p class="university__updated">
       Updated at {{ getParsedDate(university.updatedAt) }}
     </p>
@@ -150,12 +156,14 @@
 <script>
 import request from "@/request/request";
 import Statistics from "@/components/university/statistics/Statistics";
+import ScholarshipTag from "@/components/common/scholarshipTag/ScholarshipTag";
 import moment from "moment";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
   components: {
-    statistics: Statistics
+    statistics: Statistics,
+    "scholarship-tag": ScholarshipTag
   },
   data() {
     return {
@@ -223,10 +231,11 @@ export default {
 .university__title {
   margin: 0;
   font-size: 30px;
+  line-height: 1;
 }
 
 .university__updated {
-  margin-bottom: 40px;
+  margin: 5px 0 40px;
 }
 
 .university__description {
