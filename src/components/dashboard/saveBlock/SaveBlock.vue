@@ -28,13 +28,13 @@ export default {};
 
 <style>
 .save-block {
-  width: 1022px;
-  height: 448px;
+  width: 880px;
+  height: 380px;
   display: flex;
 }
 .save-block__block {
-  width: 701px;
-  height: 448px;
+  width: 600px;
+  height: 380px;
   background: #ffffff;
   border: 3px solid rgb(211, 209, 209);
   border-radius: 10px;
@@ -44,18 +44,16 @@ export default {};
 .save-block__content {
   display: flex;
   flex-direction: column;
+  margin-left: 60px;
+  width: 80%;
 }
 .save-block__title {
   color: #fb5357;
-  width: 475.23px;
   font-size: 32px;
-  margin-left: 60px;
 }
 .save-block__description {
   color: #2e1151;
-  width: 475px;
-  font-size: 20px;
-  margin-left: 60px;
+  font-size: 18px;
 }
 .save-block__button {
   font-size: 21px;
@@ -67,12 +65,14 @@ export default {};
   color: #ffffff;
   font-weight: 600;
   margin-top: 30px;
-  margin-left: 60px;
 }
 .save-block__image-box {
-  width: 489px;
-  height: 366px;
   z-index: 2;
-  margin-right: 50px;
+  width: 20%;
+  position: relative;
+  left: 20px;
+}
+.save-block__image {
+  height: 320px;
 }
 </style>
