@@ -37,6 +37,12 @@
           university.officialSite
         }}</span>
       </a>
+      <div class="university__contacts-item">
+        <a-icon type="pushpin" class="university__contacts-icon" />
+        <span class="university__contacts-text">{{
+          getLocation(university.country, university.city)
+        }}</span>
+      </div>
     </div>
     <div
       v-for="faculty in university.faculties"
@@ -153,6 +159,12 @@ export default {
     ...mapGetters(["specializations"])
   },
   methods: {
+    getLocation(country, city) {
+      if (country && city) {
+        return `${city}, ${country.name}`;
+      }
+      return country ? country.name : city;
+    },
     getPercents(number) {
       return number * 100;
     },
