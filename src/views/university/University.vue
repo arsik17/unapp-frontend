@@ -6,6 +6,12 @@
         <p class="university__description">{{ university.description }}</p>
       </a-col>
     </a-row>
+    <a-row v-if="university.acceptanceRate" class="university__acceptance-rate">
+      <a-col :span="14">
+        <h3 class="university__acceptance-rate-title">Acceptance rate</h3>
+        <a-progress :percent="getPercents(university.acceptanceRate)" />
+      </a-col>
+    </a-row>
     <div class="university__contacts">
       <a
         v-if="university.officialEmail"
@@ -13,9 +19,9 @@
         class="university__contacts-item"
       >
         <a-icon type="mail" theme="filled" class="university__contacts-icon" />
-        <span class="university__contacts-text">
-          {{ university.officialEmail }}
-        </span>
+        <span class="university__contacts-text">{{
+          university.officialEmail
+        }}</span>
       </a>
       <a
         v-if="university.officialSite"
@@ -24,9 +30,9 @@
         class="university__contacts-item"
       >
         <a-icon type="build" theme="filled" class="university__contacts-icon" />
-        <span class="university__contacts-text">
-          {{ university.officialSite }}
-        </span>
+        <span class="university__contacts-text">{{
+          university.officialSite
+        }}</span>
       </a>
     </div>
     <div
@@ -145,7 +151,7 @@ export default {
   },
   methods: {
     getPercents(number) {
-      return `${number * 100}%`;
+      return number * 100;
     },
     getUniversityScore(score) {
       return score ? score : "Not needed";
@@ -197,6 +203,10 @@ export default {
 .university__description {
   font-size: 16px;
   font-weight: 500;
+}
+
+.university__acceptance-rate {
+  margin: 50px 0;
 }
 
 .university__contacts {
