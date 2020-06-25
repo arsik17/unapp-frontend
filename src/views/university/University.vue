@@ -43,6 +43,16 @@
           getLocation(university.country, university.city)
         }}</span>
       </div>
+      <div v-if="university.admissionFee" class="university__contacts-item">
+        <a-icon type="money-collect" class="university__contacts-icon" />
+        <span class="university__contacts-text"
+          >Admission fee: {{ university.admissionFee }}
+          <a-tag v-if="university.admissionFeeWaiver" color="green"
+            >Fee waiver available</a-tag
+          >
+          <a-tag v-else color="red">Fee waiver not available</a-tag>
+        </span>
+      </div>
     </div>
     <div
       v-for="faculty in university.faculties"
