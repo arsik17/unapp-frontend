@@ -1,6 +1,9 @@
 <template>
   <div class="university" :class="{ visible: universityLoaded }">
     <h1 class="university__title">{{ university.name }}</h1>
+    <p class="university__updated">
+      Updated at {{ getParsedDate(university.updatedAt) }}
+    </p>
     <a-row v-if="university.description" type="flex" justify="space-between">
       <a-col :span="14">
         <p class="university__description">{{ university.description }}</p>
@@ -196,8 +199,12 @@ export default {
 }
 
 .university__title {
-  margin-bottom: 40px;
+  margin: 0;
   font-size: 30px;
+}
+
+.university__updated {
+  margin-bottom: 40px;
 }
 
 .university__description {
