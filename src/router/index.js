@@ -14,6 +14,13 @@ import Dashboard from "@/views/dashboard/Dashboard";
 import Universities from "@/views/universities/Universities";
 import University from "@/views/university/University";
 import Profile from "@/views/profile/Profile";
+import Search from "@/views/search/Search";
+import SavedUniversities from "@/views/savedUniversities/SavedUniversities";
+
+import SettingsLayout from "@/views/settings/Layout";
+import UserSettings from "@/views/settings/User";
+import ExamsSettings from "@/views/settings/Exams";
+import NotificationsSettings from "@/views/settings/Notifications";
 
 Vue.use(VueRouter);
 
@@ -46,9 +53,37 @@ const routes = [
         component: University
       },
       {
+        path: "saved-universities",
+        name: "saved-universities",
+        component: SavedUniversities
+      },
+      {
+        path: "search",
+        name: "search",
+        component: Search
+      },
+      {
         path: "profile",
         name: "profile",
         component: Profile
+      },
+      {
+        path: "settings",
+        component: SettingsLayout,
+        children: [
+          {
+            path: "",
+            component: UserSettings
+          },
+          {
+            path: "exams",
+            component: ExamsSettings
+          },
+          {
+            path: "notifications",
+            component: NotificationsSettings
+          }
+        ]
       }
     ]
   },
@@ -56,6 +91,9 @@ const routes = [
     path: "/auth",
     name: "auth",
     component: EmptyLayout,
+    meta: {
+      onlyNotAuth: true
+    },
     children: [
       {
         path: "login",
@@ -82,7 +120,7 @@ router.beforeEach((to, from, next) => {
     store.getters.isLoggedIn &&
     to.matched.some(record => record.meta.onlyNotAuth)
   ) {
-    next("/");
+    next("/dashboard");
   } else if (to.matched.some(record => record.meta.requiresAuth)) {
     if (store.getters.isLoggedIn) {
       next();

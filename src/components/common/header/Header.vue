@@ -1,30 +1,41 @@
 <template>
   <header class="header">
     <div class="header__left">
-      <a-input-search
-        placeholder="Search university"
-        class="header__search-field"
-        @search="onSearch"
-      />
+      <a-popover placement="bottom" title="We are in a BETA stage">
+        <template slot="content">
+          <p class="header__stage-popover-text">
+            Do not be upset if something does not work properly. We are already
+            fixing it!
+          </p>
+        </template>
+        <a-tag color="#FAC738">BETA 0.1.0</a-tag>
+      </a-popover>
     </div>
     <div class="header__right">
       <div class="header__notifications-button">
-        <a-badge count="5">
-          <a-icon type="bell" class="header__notifications-icon" />
-        </a-badge>
+        <a-dropdown>
+          <a-badge count="0">
+            <a-icon type="bell" class="header__notifications-icon" />
+          </a-badge>
+          <a-menu slot="overlay">
+            <a-menu-item>
+              <span>Notification are not implemented yet</span>
+            </a-menu-item>
+          </a-menu>
+        </a-dropdown>
       </div>
       <a-dropdown>
         <a-avatar icon="user" size="large" />
         <a-menu slot="overlay">
           <a-menu-item>
-            <a href="javascript:;">Profile</a>
+            <router-link to="/profile">Profile</router-link>
           </a-menu-item>
           <a-menu-item>
-            <a href="javascript:;">Settings</a>
+            <router-link to="/settings">Settings</router-link>
           </a-menu-item>
           <a-menu-divider />
           <a-menu-item @click="handleLogout">
-            <a href="javascript:;">Log out</a>
+            <span>Log out</span>
           </a-menu-item>
         </a-menu>
       </a-dropdown>
@@ -49,7 +60,7 @@ export default {
 
 <style scoped>
 .header {
-  height: 90px;
+  height: 10vh;
   padding: 0 4vw;
   display: flex;
   align-items: center;
@@ -76,5 +87,9 @@ export default {
 
 .header__notifications-icon {
   font-size: 24px;
+}
+
+.header__stage-popover-text {
+  max-width: 300px;
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div class="tabs">
     <a-tabs default-active-key="1" @change="callback">
-      <a-tab-pane key="1" tab="Saved universities" force-render>
-        <saved-universities />
+      <a-tab-pane key="1" tab="Exams" force-render>
+        Exams tab
       </a-tab-pane>
       <a-tab-pane key="2" tab="Stastics">
         <statistics />
@@ -16,12 +16,10 @@
 
 <script>
 import Statistics from "@/components/profile/statistics/Statistics";
-import SavedUniversities from "@/components/profile/savedUniversities/SavedUniversities";
 
 export default {
   components: {
-    statistics: Statistics,
-    "saved-universities": SavedUniversities
+    statistics: Statistics
   },
   methods: {
     callback(key) {

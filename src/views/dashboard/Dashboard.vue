@@ -1,49 +1,62 @@
 <template>
-  <div class="home">
-    <div class="card">
-      <div class="card__text">
-        <h2 class="card__heading">Find University of your dream</h2>
-        <p class="card__paragraph">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
-          provident molestias nam quos. Consectetur impedit eaque explicabo odit
-          sit ullam.
-        </p>
-        <a-button type="primary" size="large">Find something awesome</a-button>
-      </div>
-      <img src="@/assets/images/swinging_doodle.svg" alt="Swinging doodle" />
-    </div>
+  <div class="dashboard">
+    <action-card class="dashboard__action-card" />
+    <section class="dashboard__section">
+      <h1 class="dashboard__heading">Study wherever you want</h1>
+      <country-grid class="dashboard__country-grid" />
+    </section>
+    <section class="dashboard__section">
+      <h2 class="dashboard__heading">Choose country</h2>
+      <country-slider class="dashboard__country-slider" />
+    </section>
   </div>
 </template>
 
 <script>
-export default {};
+import ActionCard from "@/components/dashboard/actionCard/ActionCard";
+import CountrySlider from "@/components/dashboard/countrySlider/CountrySlider";
+import CountryGrid from "@/components/dashboard/countryGrid/CountryGrid";
+
+export default {
+  components: {
+    "action-card": ActionCard,
+    "country-slider": CountrySlider,
+    "country-grid": CountryGrid
+  }
+};
 </script>
 
 <style scoped>
-.home {
-  width: 90%;
+.dashboard {
+  width: 80%;
+  margin: 40px auto 0;
+  padding-bottom: 50px;
+}
+
+.dashboard__action-card {
+  margin-bottom: 30px;
+}
+
+.dashboard__section {
+  margin-bottom: 50px;
+}
+
+.dashboard__heading {
+  margin-bottom: 40px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  color: #3e2179;
+  padding-top: 30px;
+  font-size: 45px;
+}
+
+.dashboard__country-grid {
   margin: auto;
 }
 
-.card {
-  padding: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-}
-
-.card__text {
-  width: 70%;
-}
-
-.card__heading {
-  font-size: 30px;
-}
-
-.card__paragraph {
-  margin-bottom: 20px;
+.dashboard__country-slider {
+  height: 300px;
+  margin: auto;
 }
 </style>
