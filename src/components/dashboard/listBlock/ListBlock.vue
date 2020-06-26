@@ -16,9 +16,11 @@
           in order to find suitable higher education establishments and save
           them.
         </span>
-        <button class="list-block__button">
-          Go to this page
-        </button>
+        <div class="list-block__button-box">
+          <a-button class="list-block__button" type="primary" size="large">
+            Go to this page
+          </a-button>
+        </div>
       </div>
     </div>
   </div>
@@ -46,8 +48,6 @@ export default {};
   left: 220px;
 }
 .list-block__content {
-  display: flex;
-  flex-direction: column;
   width: 80%;
 }
 .list-block__title {
@@ -59,15 +59,7 @@ export default {};
   color: #2e1151;
   font-size: 18px;
 }
-.list-block__button {
-  font-size: 21px;
-  border-radius: 10px;
-  border: black;
-  width: 230px;
-  height: 55px;
-  background-color: #fb5357;
-  color: #ffffff;
-  font-weight: 600;
+.list-block__button-box {
   margin-top: 30px;
 }
 .list-block__image-box {

@@ -9,9 +9,10 @@
           in order to find suitable higher education establishments and save
           them.
         </span>
-        <button class="profile-block__button">
+        <div class="profile-block__button-box"></div>
+        <a-button class="profile-block__button" type="primary" size="large">
           Go to this page
-        </button>
+        </a-button>
       </div>
       <div class="profile-block__image-box">
         <img
@@ -44,8 +45,6 @@ export default {};
   align-items: center;
 }
 .profile-block__content {
-  display: flex;
-  flex-direction: column;
   margin-left: 60px;
   width: 80%;
 }
@@ -57,15 +56,7 @@ export default {};
   color: #2e1151;
   font-size: 18px;
 }
-.profile-block__button {
-  font-size: 21px;
-  border-radius: 10px;
-  border: black;
-  width: 230px;
-  height: 55px;
-  background-color: #fb5357;
-  color: #ffffff;
-  font-weight: 600;
+.profile-block__button-box {
   margin-top: 30px;
 }
 .profile-block__image-box {

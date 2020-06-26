@@ -7,9 +7,11 @@
           >Create your own universities list by simply clicking one button. You
           can add up to 20 universities into your list.</span
         >
-        <button class="save-block__button">
-          Go to this page
-        </button>
+        <div class="save-block__button-box">
+          <a-button class="save-block__button" type="primary" size="large">
+            Go to this page
+          </a-button>
+        </div>
       </div>
       <div class="save-block__image-box">
         <img
@@ -42,8 +44,6 @@ export default {};
   align-items: center;
 }
 .save-block__content {
-  display: flex;
-  flex-direction: column;
   margin-left: 60px;
   width: 80%;
 }
@@ -55,15 +55,7 @@ export default {};
   color: #2e1151;
   font-size: 18px;
 }
-.save-block__button {
-  font-size: 21px;
-  border-radius: 10px;
-  border: black;
-  width: 230px;
-  height: 55px;
-  background-color: #fb5357;
-  color: #ffffff;
-  font-weight: 600;
+.save-block__button-box {
   margin-top: 30px;
 }
 .save-block__image-box {
