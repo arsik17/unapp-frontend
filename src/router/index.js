@@ -3,24 +3,46 @@ import VueRouter from "vue-router";
 import store from "@/store/index";
 
 import EmptyLayout from "@/views/layouts/EmptyLayout";
-import DefaultLayout from "@/views/layouts/DefaultLayout";
+const DefaultLayout = () =>
+  import(
+    /* webpackChunkName: "default-layout" */ "@/views/layouts/DefaultLayout"
+  );
 
-import Home from "@/views/home/Home.vue";
+const Home = () =>
+  import(/* webpackChunkName: "home" */ "@/views/home/Home.vue");
 
-import Login from "@/views/auth/Login";
-import Register from "@/views/auth/Register";
+const Login = () =>
+  import(/* webpackChunkName: "login" */ "@/views/auth/Login");
+const Register = () =>
+  import(/* webpackChunkName: "register" */ "@/views/auth/Register");
 
-import Dashboard from "@/views/dashboard/Dashboard";
-import Universities from "@/views/universities/Universities";
-import University from "@/views/university/University";
-import Profile from "@/views/profile/Profile";
-import Search from "@/views/search/Search";
-import SavedUniversities from "@/views/savedUniversities/SavedUniversities";
+const Dashboard = () =>
+  import(/* webpackChunkName: "dashboard" */ "@/views/dashboard/Dashboard");
+const Universities = () =>
+  import(
+    /* webpackChunkName: "universities" */ "@/views/universities/Universities"
+  );
+const University = () =>
+  import(/* webpackChunkName: "university" */ "@/views/university/University");
+const Profile = () =>
+  import(/* webpackChunkName: "profile" */ "@/views/profile/Profile");
+const Search = () =>
+  import(/* webpackChunkName: "search" */ "@/views/search/Search");
+const SavedUniversities = () =>
+  import(
+    /* webpackChunkName: "saved-universities" */ "@/views/savedUniversities/SavedUniversities"
+  );
 
-import SettingsLayout from "@/views/settings/Layout";
-import UserSettings from "@/views/settings/User";
-import ExamsSettings from "@/views/settings/Exams";
-import NotificationsSettings from "@/views/settings/Notifications";
+const SettingsLayout = () =>
+  import(/* webpackChunkName: "settings-layout" */ "@/views/settings/Layout");
+const UserSettings = () =>
+  import(/* webpackChunkName: "user-settings" */ "@/views/settings/User");
+const ExamsSettings = () =>
+  import(/* webpackChunkName: "exams-settings" */ "@/views/settings/Exams");
+const NotificationsSettings = () =>
+  import(
+    /* webpackChunkName: "saved-universities" */ "@/views/settings/Notifications"
+  );
 
 Vue.use(VueRouter);
 
