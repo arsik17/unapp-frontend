@@ -1,9 +1,24 @@
 <template>
   <div class="university" :class="{ visible: universityLoaded }">
-    <h1 class="university__title">{{ university.name }}</h1>
+    <h1 class="university__title">
+      {{ university.name }}
+      <scholarship-tag
+        v-if="university.scholarship"
+        :scholarship="university.scholarship"
+      />
+    </h1>
+    <p class="university__updated">
+      Updated at {{ getParsedDate(university.updatedAt) }}
+    </p>
     <a-row v-if="university.description" type="flex" justify="space-between">
       <a-col :span="14">
         <p class="university__description">{{ university.description }}</p>
+      </a-col>
+    </a-row>
+    <a-row v-if="university.acceptanceRate" class="university__acceptance-rate">
+      <a-col :span="14">
+        <h3 class="university__acceptance-rate-title">Acceptance rate</h3>
+        <a-progress :percent="getPercents(university.acceptanceRate)" />
       </a-col>
     </a-row>
     <div class="university__contacts">
@@ -13,9 +28,9 @@
         class="university__contacts-item"
       >
         <a-icon type="mail" theme="filled" class="university__contacts-icon" />
-        <span class="university__contacts-text">
-          {{ university.officialEmail }}
-        </span>
+        <span class="university__contacts-text">{{
+          university.officialEmail
+        }}</span>
       </a>
       <a
         v-if="university.officialSite"
@@ -24,10 +39,26 @@
         class="university__contacts-item"
       >
         <a-icon type="build" theme="filled" class="university__contacts-icon" />
-        <span class="university__contacts-text">
-          {{ university.officialSite }}
-        </span>
+        <span class="university__contacts-text">{{
+          university.officialSite
+        }}</span>
       </a>
+      <div class="university__contacts-item">
+        <a-icon type="pushpin" class="university__contacts-icon" />
+        <span class="university__contacts-text">{{
+          getLocation(university.country, university.city)
+        }}</span>
+      </div>
+      <div v-if="university.admissionFee" class="university__contacts-item">
+        <a-icon type="money-collect" class="university__contacts-icon" />
+        <span class="university__contacts-text"
+          >Admission fee: {{ university.admissionFee }}
+          <a-tag v-if="university.admissionFeeWaiver" color="green"
+            >Fee waiver available</a-tag
+          >
+          <a-tag v-else color="red">Fee waiver not available</a-tag>
+        </span>
+      </div>
     </div>
     <div
       v-for="faculty in university.faculties"
@@ -125,12 +156,14 @@
 <script>
 import request from "@/request/request";
 import Statistics from "@/components/university/statistics/Statistics";
+import ScholarshipTag from "@/components/common/scholarshipTag/ScholarshipTag";
 import moment from "moment";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
   components: {
-    statistics: Statistics
+    statistics: Statistics,
+    "scholarship-tag": ScholarshipTag
   },
   data() {
     return {
@@ -144,8 +177,14 @@ export default {
     ...mapGetters(["specializations"])
   },
   methods: {
+    getLocation(country, city) {
+      if (country && city) {
+        return `${city}, ${country.name}`;
+      }
+      return country ? country.name : city;
+    },
     getPercents(number) {
-      return `${number * 100}%`;
+      return number * 100;
     },
     getUniversityScore(score) {
       return score ? score : "Not needed";
@@ -190,13 +229,22 @@ export default {
 }
 
 .university__title {
-  margin-bottom: 40px;
+  margin: 0;
   font-size: 30px;
+  line-height: 1;
+}
+
+.university__updated {
+  margin: 5px 0 40px;
 }
 
 .university__description {
   font-size: 16px;
   font-weight: 500;
+}
+
+.university__acceptance-rate {
+  margin: 50px 0;
 }
 
 .university__contacts {
