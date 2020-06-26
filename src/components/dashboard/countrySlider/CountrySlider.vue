@@ -7,9 +7,11 @@
           alt="Germany"
           class="country-slider__image"
         />
-        <h4 class="country-slider__country-name">
-          Massachusetts Institute of Technology
-        </h4>
+        <div class="country-slider__title-box">
+          <h4 class="country-slider__country-name">
+            Massachusetts Institute of Technology
+          </h4>
+        </div>
       </div>
     </slide>
     <slide class="country-slider__slide-container">
@@ -19,7 +21,11 @@
           alt="Germany"
           class="country-slider__image"
         />
-        <h4 class="country-slider__country-name">Seoul National University</h4>
+        <div class="country-slider__title-box">
+          <h4 class="country-slider__country-name">
+            Seoul National University
+          </h4>
+        </div>
       </div>
     </slide>
     <slide class="country-slider__slide-container">
@@ -29,7 +35,9 @@
           alt="Germany"
           class="country-slider__image"
         />
-        <h4 class="country-slider__country-name">Harvard University</h4>
+        <div class="country-slider__title-box">
+          <h4 class="country-slider__country-name">Harvard University</h4>
+        </div>
       </div>
     </slide>
     <slide class="country-slider__slide-container">
@@ -39,9 +47,11 @@
           alt="Germany"
           class="country-slider__image"
         />
-        <h4 class="country-slider__country-name">
-          Massachusetts Institute of Technology
-        </h4>
+        <div class="country-slider__title-box">
+          <h4 class="country-slider__country-name">
+            Massachusetts Institute of Technology
+          </h4>
+        </div>
       </div>
     </slide>
     <slide class="country-slider__slide-container">
@@ -51,7 +61,11 @@
           alt="Germany"
           class="country-slider__image"
         />
-        <h4 class="country-slider__country-name">Seoul National University</h4>
+        <div class="country-slider__title-box">
+          <h4 class="country-slider__country-name">
+            Seoul National University
+          </h4>
+        </div>
       </div>
     </slide>
     <slide class="country-slider__slide-container">
@@ -61,7 +75,9 @@
           alt="Germany"
           class="country-slider__image"
         />
-        <h4 class="country-slider__country-name">Harvard University</h4>
+        <div class="country-slider__title-box">
+          <h4 class="country-slider__country-name">Harvard University</h4>
+        </div>
       </div>
     </slide>
   </hooper>
@@ -95,23 +111,32 @@ export default {
 .country-slider__slide {
   height: 100%;
   width: 100%;
-  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  background-color: #2e1151;
+  background-color: #3e2179;
 }
 
 .country-slider__image {
   width: 100%;
   border-radius: 10px 10px 0 0;
+  height: 75%;
 }
 
 .country-slider__country-name {
   font-size: 20px;
   color: #ffffff;
+  text-align: center;
+}
+
+.country-slider__title-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25%;
+  width: 100%;
 }
 </style>
