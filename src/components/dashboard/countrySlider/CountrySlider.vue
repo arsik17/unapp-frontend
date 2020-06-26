@@ -123,7 +123,7 @@ export default {
 .country-slider__image {
   width: 100%;
   border-radius: 10px 10px 0 0;
-  height: 75%;
+  height: 65%;
 }
 
 .country-slider__country-name {
@@ -136,7 +136,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 25%;
+  height: 35%;
   width: 100%;
 }
 </style>
