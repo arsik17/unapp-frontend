@@ -1,7 +1,7 @@
 <template>
   <a-form-model class="feedback" :model="form" :rules="rules" ref="form">
     <h1 class="feedback__heading">Give us feedback ;)</h1>
-    <a-form-model-item label="First name" prop="firstName">
+    <a-form-model-item label="Email" prop="firstName">
       <a-input
         placeholder="Email (if you want us to contact you)"
         class="feedback__input"
@@ -53,14 +53,22 @@ export default {
           email: this.form.email,
           text: this.form.text
         };
-        this.sendFeedback(data);
+        this.sendFeedback(data)
+          .then(() => {
+            (this.form.email = ""), (this.form.text = "");
+          })
+          .catch(() => {});
       }
     },
     sendFeedback(data) {
-      request({
-        url: "/feedbacks",
-        method: "POST",
-        data
+      return new Promise((resolve, reject) => {
+        request({
+          url: "/feedbacks",
+          method: "POST",
+          data
+        })
+          .then(res => resolve(res))
+          .catch(err => reject(err));
       });
     },
     isFormValid() {
