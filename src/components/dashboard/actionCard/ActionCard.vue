@@ -1,13 +1,15 @@
 <template>
   <div class="card">
     <div class="card__text">
-      <h2 class="card__heading">Find University of your dream</h2>
+      <h2 class="card__heading">Your opinion matters</h2>
       <p class="card__paragraph">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
-        provident molestias nam quos. Consectetur impedit eaque explicabo odit
-        sit ullam.
+        This is BETA version of the application and we need your feedback to
+        make it better. Please right several sentences about what you disliked
+        and liked about UnApp.
       </p>
-      <a-button type="primary" size="large">Find something awesome</a-button>
+      <a-button @click="$router.push('/search')" type="primary" size="large"
+        >Anonymous feedback</a-button
+      >
     </div>
     <img src="@/assets/images/swinging_doodle.svg" alt="Swinging doodle" />
   </div>

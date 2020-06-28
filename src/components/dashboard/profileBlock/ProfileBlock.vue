@@ -10,8 +10,13 @@
           them.
         </span>
         <div class="profile-block__button-box"></div>
-        <a-button class="profile-block__button" type="primary" size="large">
-          Go to this page
+        <a-button
+          @click="$router.push('/profile')"
+          class="profile-block__button"
+          type="primary"
+          size="large"
+        >
+          View profile
         </a-button>
       </div>
       <div class="profile-block__image-box">

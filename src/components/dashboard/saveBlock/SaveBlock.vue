@@ -8,8 +8,13 @@
           can add up to 20 universities into your list.</span
         >
         <div class="save-block__button-box">
-          <a-button class="save-block__button" type="primary" size="large">
-            Go to this page
+          <a-button
+            @click="$router.push('/saved-universities')"
+            class="save-block__button"
+            type="primary"
+            size="large"
+          >
+            My saved universities
           </a-button>
         </div>
       </div>

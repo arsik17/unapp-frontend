@@ -17,8 +17,13 @@
           them.
         </span>
         <div class="list-block__button-box">
-          <a-button class="list-block__button" type="primary" size="large">
-            Go to this page
+          <a-button
+            @click="$router.push('/universities')"
+            class="list-block__button"
+            type="primary"
+            size="large"
+          >
+            All universities
           </a-button>
         </div>
       </div>
