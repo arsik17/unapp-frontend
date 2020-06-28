@@ -1,6 +1,7 @@
 <template>
   <a-form-model class="feedback" :model="form" :rules="rules" ref="form">
     <h1 class="feedback__heading">Give us feedback ;)</h1>
+    <p>Help us improve the world!</p>
     <a-form-model-item label="Email" prop="firstName">
       <a-input
         placeholder="Email (if you want us to contact you)"
