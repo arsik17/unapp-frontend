@@ -44,6 +44,9 @@ const NotificationsSettings = () =>
     /* webpackChunkName: "saved-universities" */ "@/views/settings/Notifications"
   );
 
+const Feedback = () =>
+  import(/* webpackChunkName: "feedback" */ "@/views/feedback/Feedback");
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -106,6 +109,11 @@ const routes = [
             component: NotificationsSettings
           }
         ]
+      },
+      {
+        path: "feedback",
+        name: "feedback",
+        component: Feedback
       }
     ]
   },

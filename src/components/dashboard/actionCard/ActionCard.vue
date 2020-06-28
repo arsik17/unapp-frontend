@@ -7,8 +7,8 @@
         make it better. Please right several sentences about what you disliked
         and liked about UnApp.
       </p>
-      <a-button @click="$router.push('/search')" type="primary" size="large"
-        >Anonymous feedback</a-button
+      <a-button @click="$router.push('/feedback')" type="primary" size="large"
+        >Give feedback</a-button
       >
     </div>
     <img src="@/assets/images/swinging_doodle.svg" alt="Swinging doodle" />
@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: space-between;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid #c3c3c3;
   box-sizing: border-box;
 }
 
