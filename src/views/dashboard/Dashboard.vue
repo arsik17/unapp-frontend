@@ -5,8 +5,13 @@
       <h1 class="dashboard__heading">Study wherever you want</h1>
       <country-grid class="dashboard__country-grid" />
     </section>
+    <section class="dashboard__section section__block">
+      <profile-block class="dashboard__hint-block" />
+      <list-block class="dashboard__hint-block" />
+      <save-block class="dashboard__hint-block" />
+    </section>
     <section class="dashboard__section">
-      <h2 class="dashboard__heading">Choose country</h2>
+      <h2 class="dashboard__heading">Most viewed universities</h2>
       <country-slider class="dashboard__country-slider" />
     </section>
   </div>
@@ -16,12 +21,18 @@
 import ActionCard from "@/components/dashboard/actionCard/ActionCard";
 import CountrySlider from "@/components/dashboard/countrySlider/CountrySlider";
 import CountryGrid from "@/components/dashboard/countryGrid/CountryGrid";
+import SaveBlock from "@/components/dashboard/saveBlock/SaveBlock";
+import ListBlock from "@/components/dashboard/listBlock/ListBlock";
+import ProfileBlock from "@/components/dashboard/profileBlock/ProfileBlock";
 
 export default {
   components: {
     "action-card": ActionCard,
     "country-slider": CountrySlider,
-    "country-grid": CountryGrid
+    "country-grid": CountryGrid,
+    "save-block": SaveBlock,
+    "list-block": ListBlock,
+    "profile-block": ProfileBlock
   }
 };
 </script>
@@ -58,5 +69,16 @@ export default {
 .dashboard__country-slider {
   height: 300px;
   margin: auto;
+}
+
+.section__block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboard__hint-block {
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 </style>
