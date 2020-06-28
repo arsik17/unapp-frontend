@@ -33,6 +33,9 @@
           <a-menu-item>
             <router-link to="/settings">Settings</router-link>
           </a-menu-item>
+          <a-menu-item>
+            <router-link to="/feedback">Feedback</router-link>
+          </a-menu-item>
           <a-menu-divider />
           <a-menu-item @click="handleLogout">
             <span>Log out</span>

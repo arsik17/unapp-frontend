@@ -7,7 +7,7 @@
         make it better. Please right several sentences about what you disliked
         and liked about UnApp.
       </p>
-      <a-button @click="$router.push('/search')" type="primary" size="large"
+      <a-button @click="$router.push('/feedback')" type="primary" size="large"
         >Anonymous feedback</a-button
       >
     </div>
