@@ -22,7 +22,8 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import request from "@/request/request";
+import { mapGetters } from "vuex";
 
 export default {
   data() {
@@ -43,18 +44,30 @@ export default {
       }
     };
   },
+  computed: mapGetters(["currentUser"]),
   methods: {
     handleFormSubmit() {
       if (this.isFormValid()) {
-        console.log("Send feedback", this.form);
+        const data = {
+          user: this.currentUser._id,
+          email: this.form.email,
+          text: this.form.text
+        };
+        this.sendFeedback(data);
       }
+    },
+    sendFeedback(data) {
+      request({
+        url: "/feedbacks",
+        method: "POST",
+        data
+      });
     },
     isFormValid() {
       let isValid = false;
       this.$refs.form.validate(valid => (isValid = valid));
       return isValid;
-    },
-    ...mapActions([])
+    }
   }
 };
 </script>
