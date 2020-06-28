@@ -8,20 +8,22 @@
       />
     </div>
     <div class="profile__block profile__content">
-      <tabs />
+      <a-empty>
+        <span slot="description">
+          Here will be calendar of your deadlines
+        </span>
+      </a-empty>
     </div>
   </div>
 </template>
 
 <script>
 import ProfileCard from "@/components/common/profileCard/ProfileCard";
-import Tabs from "@/components/profile/tabs/Tabs";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
   components: {
-    "profile-card": ProfileCard,
-    tabs: Tabs
+    "profile-card": ProfileCard
   },
   computed: {
     currentUserLoaded() {
@@ -53,6 +55,7 @@ export default {
 
 .profile__content {
   width: 80%;
+  margin-top: 100px;
   box-sizing: border-box;
 }
 </style>
