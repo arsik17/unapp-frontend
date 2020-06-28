@@ -8,7 +8,7 @@
         and liked about UnApp.
       </p>
       <a-button @click="$router.push('/feedback')" type="primary" size="large"
-        >Anonymous feedback</a-button
+        >Give feedback</a-button
       >
     </div>
     <img src="@/assets/images/swinging_doodle.svg" alt="Swinging doodle" />
