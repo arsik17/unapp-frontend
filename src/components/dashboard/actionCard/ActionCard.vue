@@ -4,7 +4,7 @@
       <h2 class="card__heading">Your opinion matters</h2>
       <p class="card__paragraph">
         This is BETA version of the application and we need your feedback to
-        make it better. Please right several sentences about what you disliked
+        make it better. Please write several sentences about what you disliked
         and liked about UnApp.
       </p>
       <a-button @click="$router.push('/feedback')" type="primary" size="large"
