@@ -100,14 +100,14 @@
         <a-col :span="8">
           <statistics
             title="Motivation letter"
-            :value="getBooleanText(faculty.motivationLetter)"
+            :value="getBooleanText(faculty.motivationLetterRequired)"
             tooltip="Motivation letter"
           />
         </a-col>
         <a-col :span="8">
           <statistics
             title="Recommendation letter"
-            :value="getBooleanText(faculty.recommendationLetter)"
+            :value="getBooleanText(faculty.recommendationLetterRequired)"
             tooltip="Recommendation letter"
           />
         </a-col>
