@@ -64,7 +64,9 @@ export default {
         this.login({
           email: this.form.email,
           password: this.form.password
-        }).then(() => this.$router.push("/dashboard"));
+        })
+          .then(() => this.fetchCurrentUser())
+          .then(() => this.$router.push("/dashboard"));
       }
     },
     isFormValid() {
@@ -72,7 +74,7 @@ export default {
       this.$refs.form.validate(valid => (isValid = valid));
       return isValid;
     },
-    ...mapActions(["login"])
+    ...mapActions(["login", "fetchCurrentUser"])
   }
 };
 </script>

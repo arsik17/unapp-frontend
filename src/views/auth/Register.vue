@@ -82,7 +82,9 @@ export default {
           email: this.form.email,
           password: this.form.password
         };
-        this.register(user).then(() => this.$router.push("/dashboard"));
+        this.register(user)
+          .then(() => this.fetchCurrentUser())
+          .then(() => this.$router.push("/dashboard"));
       }
     },
     isFormValid() {
@@ -90,7 +92,7 @@ export default {
       this.$refs.form.validate(valid => (isValid = valid));
       return isValid;
     },
-    ...mapActions(["register"])
+    ...mapActions(["register", "fetchCurrentUser"])
   }
 };
 </script>
