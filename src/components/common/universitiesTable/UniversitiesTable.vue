@@ -3,6 +3,7 @@
     :columns="columns"
     :data-source="universitiesTableData"
     :pagination="false"
+    class="universities-table"
   >
     <span slot="name" slot-scope="record">
       <router-link :to="'/universities/' + record.id">
@@ -149,4 +150,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.universities-table {
+  padding: 0 0 70px;
+}
+</style>

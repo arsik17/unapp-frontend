@@ -37,12 +37,14 @@ export default {};
 
 <style scoped>
 .nav {
+  min-width: 250px;
   padding: 7vh 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   background-color: #3e2179;
+  z-index: 1;
 }
 
 .logo {

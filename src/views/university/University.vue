@@ -100,14 +100,14 @@
         <a-col :span="8">
           <statistics
             title="Motivation letter"
-            :value="getBooleanText(faculty.motivationLetter)"
+            :value="getBooleanText(faculty.motivationLetterRequired)"
             tooltip="Motivation letter"
           />
         </a-col>
         <a-col :span="8">
           <statistics
             title="Recommendation letter"
-            :value="getBooleanText(faculty.recommendationLetter)"
+            :value="getBooleanText(faculty.recommendationLetterRequired)"
             tooltip="Recommendation letter"
           />
         </a-col>
@@ -146,6 +146,7 @@
           v-for="specialization in getSpecializationsOfFaculty(faculty.id)"
           :key="specialization.id"
           color="green"
+          class="university__specialization"
           >{{ specialization.name }}</a-tag
         >
       </div>
@@ -288,5 +289,9 @@ export default {
 
 .university__additional-requirements {
   margin-top: 50px;
+}
+
+.university__specialization {
+  margin-bottom: 10px;
 }
 </style>
