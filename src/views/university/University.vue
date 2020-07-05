@@ -146,6 +146,7 @@
           v-for="specialization in getSpecializationsOfFaculty(faculty.id)"
           :key="specialization.id"
           color="green"
+          class="university__specialization"
           >{{ specialization.name }}</a-tag
         >
       </div>
@@ -288,5 +289,9 @@ export default {
 
 .university__additional-requirements {
   margin-top: 50px;
+}
+
+.university__specialization {
+  margin-bottom: 10px;
 }
 </style>
