@@ -24,6 +24,7 @@ export default {
 
 <style scoped>
 .default-layout {
+  min-width: 1100px;
   display: flex;
   justify-content: space-between;
 }
