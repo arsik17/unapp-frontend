@@ -46,4 +46,14 @@ export default {
   width: 80%;
   box-sizing: border-box;
 }
+
+@media all and (max-width: 1250px) {
+  .default-layout__nav-wrapper {
+    width: 8%;
+  }
+
+  .default-layout__content {
+    width: 92%;
+  }
+}
 </style>

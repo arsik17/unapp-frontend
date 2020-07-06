@@ -1,13 +1,23 @@
 <template>
-  <nav class="nav">
-    <h2 class="nav__logo logo">
-      <router-link to="/">
+  <nav class="nav" :class="{ nav_closed: !isOpen }">
+    <h2 class="nav__top">
+      <router-link class="logo nav__logo" to="/">
         <img
           class="logo__image"
           src="@/assets/images/logo_light.svg"
           alt="Logo"
         />
       </router-link>
+      <a-icon
+        @click="isOpen = true"
+        type="menu"
+        class="nav__menu-icon nav__menu-icon_open"
+      />
+      <a-icon
+        @click="isOpen = false"
+        type="menu-fold"
+        class="nav__menu-icon nav__menu-icon_close"
+      />
     </h2>
     <div class="nav__links">
       <router-link to="/dashboard" exact class="nav__link">
@@ -32,7 +42,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      isOpen: true
+    };
+  }
+};
 </script>
 
 <style scoped>
@@ -44,11 +60,34 @@ export default {};
   align-items: center;
   justify-content: space-between;
   background-color: #3e2179;
-  z-index: 1;
+  transition: 200ms;
+  overflow: hidden;
+  z-index: 10;
 }
 
-.logo {
+.nav__top {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__logo {
+  display: block;
   width: 45%;
+}
+
+.nav__menu-icon {
+  display: none;
+  padding: 20px 0;
+  font-size: 22px;
+  color: #ffffff;
+  transition: 300ms;
+  cursor: pointer;
+}
+
+.nav__menu-icon:hover {
+  background-color: #fac738;
 }
 
 .logo__image {
@@ -80,5 +119,58 @@ export default {};
 .nav__icon,
 .nav__footer-icon {
   margin-right: 20px;
+}
+
+@media all and (max-width: 1250px) {
+  nav.nav {
+    width: 250px;
+    min-width: auto;
+    padding: 0;
+  }
+
+  .nav__top {
+    justify-content: space-between;
+  }
+
+  .nav__logo {
+    margin-left: 25px;
+  }
+
+  .nav_closed > .nav__logo {
+    display: none;
+  }
+
+  .nav__menu-icon {
+    display: block;
+  }
+
+  .nav.nav_closed {
+    width: 8vw;
+  }
+
+  .nav_closed > .nav__links {
+    display: none;
+  }
+
+  .nav_closed .nav__logo {
+    display: none;
+  }
+
+  .nav__menu-icon_open {
+    width: 100%;
+    display: none;
+  }
+
+  .nav__menu-icon_close {
+    padding: 25px;
+  }
+
+  .nav_closed .nav__menu-icon_open {
+    display: block;
+  }
+
+  .nav_closed .nav__menu-icon_close {
+    display: none;
+  }
 }
 </style>
