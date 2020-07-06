@@ -30,18 +30,14 @@
   </div>
 </template>
 
-<script>
-export default {};
-</script>
-
 <style>
 .profile-block {
-  width: 880px;
+  width: 100%;
   height: 380px;
-  display: flex;
 }
+
 .profile-block__block {
-  width: 650px;
+  width: 70%;
   height: 380px;
   background: #ffffff;
   border: 3px solid rgb(211, 209, 209);
@@ -49,28 +45,65 @@ export default {};
   display: flex;
   align-items: center;
 }
+
 .profile-block__content {
   margin-left: 60px;
   width: 80%;
 }
+
 .profile-block__title {
   color: #fb5357;
   font-size: 32px;
 }
+
 .profile-block__description {
   color: #2e1151;
   font-size: 18px;
 }
+
 .profile-block__button-box {
   margin-top: 30px;
 }
+
 .profile-block__image-box {
   width: 20%;
   z-index: 2;
   position: relative;
   left: 30px;
 }
+
 .profile-block__image {
   height: 320px;
+}
+
+@media all and (max-width: 1300px) {
+  .profile-block__block {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 40px;
+    justify-content: space-between;
+  }
+
+  .profile-block__content {
+    width: 50%;
+    margin: 0;
+  }
+
+  .profile-block__image-box {
+    width: 40%;
+    position: static;
+  }
+
+  .profile-block__image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media all and (max-width: 1150px) {
+  .profile-block__description {
+    font-size: 14px;
+  }
 }
 </style>
