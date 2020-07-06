@@ -77,6 +77,10 @@
 }
 
 @media all and (max-width: 1300px) {
+  .profile-block {
+    height: auto;
+  }
+
   .profile-block__block {
     position: static;
     width: 100%;

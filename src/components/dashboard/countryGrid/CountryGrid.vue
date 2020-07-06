@@ -102,4 +102,10 @@ export default {
   height: 100%;
   width: 100%;
 }
+
+@media all and (max-width: 1150px) {
+  .country-grid {
+    grid-auto-rows: 150px;
+  }
+}
 </style>

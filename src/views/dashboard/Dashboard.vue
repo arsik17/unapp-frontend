@@ -78,7 +78,16 @@ export default {
 }
 
 .dashboard__hint-block {
-  margin-bottom: 50px;
-  margin-top: 50px;
+  margin-top: 100px;
+}
+
+@media all and (max-width: 1100px) {
+  .dashboard__heading {
+    font-size: 35px;
+  }
+
+  .dashboard__hint-block {
+    margin-top: 50px;
+  }
 }
 </style>
