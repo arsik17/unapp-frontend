@@ -1,5 +1,5 @@
 <template>
-  <hooper class="country-slider" :itemsToShow="3" :trimWhiteSpace="true">
+  <hooper class="country-slider" :settings="sliderSettings">
     <slide class="country-slider__slide-container">
       <div class="country-slider__slide">
         <img
@@ -91,6 +91,22 @@ export default {
   components: {
     hooper: Hooper,
     slide: Slide
+  },
+  data() {
+    return {
+      sliderSettings: {
+        itemsToShow: 1,
+        trimWhiteSpace: true,
+        breakpoints: {
+          850: {
+            itemsToShow: 2
+          },
+          1200: {
+            itemsToShow: 3
+          }
+        }
+      }
+    };
   }
 };
 </script>
