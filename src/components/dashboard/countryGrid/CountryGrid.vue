@@ -108,4 +108,25 @@ export default {
     grid-auto-rows: 150px;
   }
 }
+
+@media all and (max-width: 850px) {
+  .country-grid {
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+  }
+}
+
+@media all and (max-width: 650px) {
+  .country-grid {
+    grid-auto-rows: 100px;
+  }
+}
+
+@media all and (max-width: 550px) {
+  .country-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 150px;
+    grid-row-gap: 20px;
+  }
+}
 </style>

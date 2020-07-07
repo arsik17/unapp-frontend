@@ -25,6 +25,7 @@ export default {
   align-items: center;
   border-radius: 10px;
   background-size: cover;
+  overflow: hidden;
 }
 
 .country-card__title {
@@ -34,5 +35,11 @@ export default {
   color: #ffffff;
   text-align: center;
   text-transform: uppercase;
+}
+
+@media all and (max-width: 850px) {
+  .country-card__title {
+    font-size: 18px;
+  }
 }
 </style>
