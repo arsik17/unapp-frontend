@@ -8,11 +8,11 @@
       />
     </div>
     <div class="profile__block profile__content">
-      <a-empty>
-        <span slot="description">
-          Here will be calendar of your deadlines
-        </span>
-      </a-empty>
+      <span class="profile__content-title">Calendar of your deadlines</span>
+      <a-calendar
+        class="profile__content-calendar"
+        @panelChange="onPanelChange"
+      />
     </div>
   </div>
 </template>
@@ -36,6 +36,9 @@ export default {
   },
   beforeMount() {
     this.fetchCurrentUser();
+  },
+  nPanelChange(value, mode) {
+    console.log(value, mode);
   }
 };
 </script>
@@ -54,8 +57,13 @@ export default {
 }
 
 .profile__content {
-  width: 80%;
-  margin-top: 100px;
+  width: 65%;
+  margin-right: 50px;
   box-sizing: border-box;
+}
+
+.profile__content-title {
+  font-size: 30px;
+  font-weight: 600;
 }
 </style>
