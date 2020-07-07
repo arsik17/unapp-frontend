@@ -90,4 +90,10 @@ export default {
     margin-top: 50px;
   }
 }
+
+@media all and (max-width: 850px) {
+  .dashboard__hint-block {
+    display: none;
+  }
+}
 </style>
