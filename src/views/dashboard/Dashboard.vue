@@ -95,5 +95,10 @@ export default {
   .section__block {
     display: none;
   }
+
+  .dashboard__heading {
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
 }
 </style>
