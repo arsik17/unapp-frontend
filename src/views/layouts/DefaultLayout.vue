@@ -69,13 +69,19 @@ export default {
 
   .default-layout__nav {
     width: 100vw;
-    height: 9vh;
+    height: 90px;
     top: auto;
     bottom: 0;
   }
 
   .default-layout__content {
     width: 100%;
+  }
+}
+
+@media all and (max-width: 550px) {
+  .default-layout__nav {
+    height: 70px;
   }
 }
 </style>

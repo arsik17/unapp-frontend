@@ -203,4 +203,10 @@ export default {
     margin: 0;
   }
 }
+
+@media all and (max-width: 550px) {
+  .nav__links {
+    width: 85%;
+  }
+}
 </style>
