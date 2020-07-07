@@ -11,7 +11,11 @@
         >Give feedback</a-button
       >
     </div>
-    <img src="@/assets/images/swinging_doodle.svg" alt="Swinging doodle" />
+    <img
+      src="@/assets/images/swinging_doodle.svg"
+      alt="Swinging doodle"
+      class="card__image"
+    />
   </div>
 </template>
 
@@ -36,5 +40,35 @@
 
 .card__paragraph {
   margin-bottom: 20px;
+}
+
+@media all and (max-width: 850px) {
+  .card {
+    padding: 0;
+    flex-direction: column-reverse;
+    text-align: center;
+    border: none;
+  }
+
+  .card__image {
+    width: 60%;
+    margin-bottom: 30px;
+  }
+}
+
+@media all and (max-width: 750px) {
+  .card__text {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 430px) {
+  .card__heading {
+    font-size: 24px;
+  }
+
+  .card__paragraph {
+    font-size: 12px;
+  }
 }
 </style>

@@ -92,7 +92,7 @@ export default {
 }
 
 @media all and (max-width: 850px) {
-  .dashboard__hint-block {
+  .section__block {
     display: none;
   }
 }
