@@ -44,6 +44,15 @@ const NotificationsSettings = () =>
     /* webpackChunkName: "saved-universities" */ "@/views/settings/Notifications"
   );
 
+const UsefulLinksLayout = () =>
+  import(
+    /* webpackChunkName: "useful-links-layout"*/ "@/views/usefulLinks/Layout"
+  );
+const UsefulLinks = () =>
+  import(
+    /* webpackChunNmae: "useful-links" */ "@/views/usefulLinks/UsefulLinks"
+  );
+
 const Feedback = () =>
   import(/* webpackChunkName: "feedback" */ "@/views/feedback/Feedback");
 
@@ -114,6 +123,32 @@ const routes = [
         path: "feedback",
         name: "feedback",
         component: Feedback
+      },
+      {
+        path: "useful-links",
+        component: UsefulLinksLayout,
+        children: [
+          {
+            path: "ielts",
+            component: UsefulLinks
+          },
+          {
+            path: "toefl",
+            component: UsefulLinks
+          },
+          {
+            path: "sat-reasoning",
+            component: UsefulLinks
+          },
+          {
+            path: "sat-subject",
+            component: UsefulLinks
+          },
+          {
+            path: "motiv-letter",
+            component: UsefulLinks
+          }
+        ]
       }
     ]
   },

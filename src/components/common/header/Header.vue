@@ -28,6 +28,10 @@
         <a-avatar icon="user" size="large" />
         <a-menu slot="overlay">
           <a-menu-item>
+            <router-link to="/useful-links/ielts">Useful Links</router-link>
+          </a-menu-item>
+          <a-menu-divider />
+          <a-menu-item>
             <router-link to="/profile">Profile</router-link>
           </a-menu-item>
           <a-menu-item>
