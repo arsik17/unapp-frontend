@@ -52,8 +52,30 @@ export default {
     width: 8%;
   }
 
+  .default-layout__nav {
+    width: 250px;
+    min-width: auto;
+  }
+
   .default-layout__content {
     width: 92%;
+  }
+}
+
+@media all and (max-width: 850px) {
+  .default-layout__nav-wrapper {
+    width: 0;
+  }
+
+  .default-layout__nav {
+    width: 100vw;
+    height: 9vh;
+    top: auto;
+    bottom: 0;
+  }
+
+  .default-layout__content {
+    width: 100%;
   }
 }
 </style>

@@ -122,9 +122,7 @@ export default {
 }
 
 @media all and (max-width: 1250px) {
-  nav.nav {
-    width: 250px;
-    min-width: auto;
+  .nav {
     padding: 0;
   }
 
@@ -171,6 +169,38 @@ export default {
 
   .nav_closed .nav__menu-icon_close {
     display: none;
+  }
+}
+
+@media all and (max-width: 850px) {
+  .nav {
+    border-radius: 30px 30px 0 0;
+  }
+
+  .nav__top,
+  .nav__footer {
+    display: none;
+  }
+
+  .nav__links {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav__link {
+    margin: 0;
+    justify-content: center;
+  }
+
+  .nav__link-text {
+    display: none;
+  }
+
+  .nav__icon {
+    margin: 0;
   }
 }
 </style>
